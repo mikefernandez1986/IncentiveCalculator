@@ -19,9 +19,7 @@ namespace IncentiveCalcPOC.DAOLayer
             List<KPIEntities> kpiInfo = new List<KPIEntities>();
             try
             {
-                SqlDataReader dr = SqlHelper.ExecuteReader(
-                    sqlConnectionString
-                   ,CommandType.StoredProcedure, "usp_GetKPIDetails");
+                SqlDataReader dr = SqlHelper.ExecuteReader(sqlConnectionString,CommandType.StoredProcedure, "usp_GetKPIDetails");
                 if (dr.HasRows)
                 {
                     while (dr.Read())
