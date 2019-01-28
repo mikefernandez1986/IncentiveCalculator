@@ -720,6 +720,7 @@
     <Content Include="js\portlet.js" />
     <Content Include="js\settings.js" />
     <Content Include="js\utils.js" />
+    <Content Include="LoginPage.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -785,9 +786,13 @@
   <ItemGroup>
     <Compile Include="BAOLayer\FileUploaderBAO.cs" />
     <Compile Include="BAOLayer\KPIBAO.cs" />
+    <Compile Include="BAOLayer\UserRoleBAO.cs" />
+    <Compile Include="DAOLayer\UserRoleDetailsDAO.cs" />
     <Compile Include="DAOLayer\FileUploaderDAO.cs" />
     <Compile Include="DAOLayer\KPIDetailsDAO.cs" />
+    <Compile Include="Entities\UserEntities.cs" />
     <Compile Include="Entities\KPIEntities.cs" />
+    <Compile Include="Entities\RoleEntities.cs" />
     <Compile Include="GenerateKPI.aspx.cs">
       <DependentUpon>GenerateKPI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -797,9 +802,16 @@
     </Compile>
     <Compile Include="Helpers\DataTableEntensions.cs" />
     <Compile Include="Helpers\DBHelper.cs" />
+    <Compile Include="Helpers\HashHelper.cs" />
     <Compile Include="Helpers\LINQtoDataTable.cs" />
     <Compile Include="Helpers\ListExtensions.cs" />
-
+    <Compile Include="LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="IncentiveCalc.Master.cs">
       <DependentUpon>IncentiveCalc.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
