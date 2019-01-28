@@ -44,5 +44,19 @@ namespace IncentiveCalcPOC.BAOLayer
 
             return status;
         }
+        
+        public bool processFiles()
+        {
+            bool succeess = false;
+            try
+            {
+                DAO.ProcessData();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return succeess;
+        }
     }
 }
