@@ -67,6 +67,15 @@ namespace IncentiveCalcPOC {
         protected global::System.Web.UI.WebControls.Button btn_FileUpload;
         
         /// <summary>
+        /// UploadDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label UploadDetails;
+        
+        /// <summary>
         /// tb_KPIDetails control.
         /// </summary>
         /// <remarks>
