@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/IncentiveCalc.Master" AutoEventWireup="true" CodeBehind="UploadInfo.aspx.cs" Inherits="IncentiveCalcPOC.UploadInfo" %>
+﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/IncentiveCalc.Master" AutoEventWireup="true" CodeBehind="UploadInfo.aspx.cs" Inherits="IncentiveCalcPOC.UploadInfo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>::Upload Files</title>
     <!-- THIS PAGE PLUGINS -->    
@@ -77,7 +77,10 @@
                                                         <div class="col-md-3">
                                                             <asp:Button ID="btn_FileUpload" CssClass="btn btn-success" runat="server" Text="Upload a File" OnClick="btnUpload_Click"  /> 
                                                         </div> 
-                                                    </div>                  
+                                                    </div> 
+                                                      <div class="row">
+                                                          <asp:Label ID="UploadDetails"  runat="server"></asp:Label>
+                                                        </div>               
                                                 </ContentTemplate>
                                                 <Triggers>
                                                     <asp:PostBackTrigger ControlID="btn_FileUpload" />
