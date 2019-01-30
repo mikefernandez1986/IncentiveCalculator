@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
@@ -134,6 +134,9 @@
     <Content Include="assets\images\users\user5.jpg" />
     <Content Include="assets\images\users\user6.jpg" />
     <Content Include="assets\images\users\user7.jpg" />
+    <Content Include="assets\js\jquery.2.1.1.min.js" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\jquery.mobile.custom.min.js" />
     <Content Include="assets\uploads\Images\Animal 48.jpg" />
     <Content Include="assets\uploads\Images\Lotus Sport Exige Gt3 01.jpg" />
     <Content Include="assets\uploads\Images\peugeot_908rc-1600x1200.jpg" />
@@ -162,6 +165,8 @@
     <Content Include="assets\uploads\MIME-Types\virus.exe" />
     <Content Include="assets\uploads\MIME-Types\vmware-win-ie8-elfinder.png" />
     <Content Include="assets\uploads\MIME-Types\YUICompressor.java" />
+    <Content Include="css\ace-rtl.min.css" />
+    <Content Include="css\ace.min.css" />
     <Content Include="css\animate\animate.css" />
     <Content Include="css\animate\animate.min.css" />
     <Content Include="css\blueimp\blueimp-gallery.min.css" />
@@ -198,6 +203,8 @@
     <Content Include="css\codemirror\theme\xq-dark.css" />
     <Content Include="css\codemirror\theme\xq-light.css" />
     <Content Include="css\dropzone\dropzone.css" />
+    <Content Include="css\fontawesome\4.2.0\css\font-awesome.min.css" />
+    <Content Include="css\fontawesome\4.2.0\fonts\fontawesome-webfont.svg" />
     <Content Include="css\fontawesome\font-awesome.min.css" />
     <Content Include="css\fonts\fontawesome-webfont.svg" />
     <Content Include="css\fonts\glyphicons-halflings-regular.svg" />
@@ -761,9 +768,10 @@
     <Content Include="css\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="js\plugins\jquery\jquery-2.1.1.min.map" />
     <Content Include="js\plugins\tableexport\simple_html_dom.php" />
-
     <Content Include="IncentiveCalc.Master" />
-
+    <Content Include="css\fontawesome\4.2.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="css\fontawesome\4.2.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="css\fontawesome\4.2.0\fonts\fontawesome-webfont.woff" />
     <None Include="Properties\PublishProfiles\Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\IncentiveCalc.pubxml" />
     <None Include="Web.Debug.config">
@@ -776,9 +784,7 @@
   <ItemGroup>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-
     <Content Include="UploadInfo.aspx" />
-
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -826,7 +832,6 @@
     </Compile>
     <Compile Include="UploadInfo.aspx.designer.cs">
       <DependentUpon>UploadInfo.aspx</DependentUpon>
-
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -867,7 +872,6 @@
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
-
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
