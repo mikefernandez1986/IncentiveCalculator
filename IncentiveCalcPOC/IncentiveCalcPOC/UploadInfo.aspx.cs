@@ -16,6 +16,7 @@ namespace IncentiveCalcPOC
         protected void Page_Load(object sender, EventArgs e)
         {
             tb_KPIDetails.InnerHtml = KPI_BAO.GetKPIDetails();
+           // ScriptManager1.RegisterAsyncPostBackControl(btn_FileUpload);
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)
@@ -34,7 +35,7 @@ namespace IncentiveCalcPOC
 
                         var output = ProcessFilesAsync();
 
-                        UploadDetails.Text = "File Uploaded Successfully !!!";
+                        UploadDetails.Text = "File Uploaded Successfully!! Processing the file in background";
 
                     }
 
@@ -55,7 +56,7 @@ namespace IncentiveCalcPOC
         {
             var processFiles =  Task.Run(() => BAO.processFiles());
             var updateInfo = Task.Run(() => KPI_BAO.GetKPIDetails());
-            tb_KPIDetails.InnerHtml = Convert.ToString(updateInfo);
+            tb_KPIDetails.InnerHtml = Convert.ToString(await updateInfo);
             var response = await processFiles;  
             return Convert.ToBoolean(response);
         }

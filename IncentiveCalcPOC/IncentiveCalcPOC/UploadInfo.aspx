@@ -1,6 +1,27 @@
-﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/IncentiveCalc.Master" AutoEventWireup="true" CodeBehind="UploadInfo.aspx.cs" Inherits="IncentiveCalcPOC.UploadInfo" %>
+﻿<%@ Page Async="true" Title="::Uplaod Files" Language="C#" MasterPageFile="~/IncentiveCalc.Master" AutoEventWireup="true" CodeBehind="UploadInfo.aspx.cs" Inherits="IncentiveCalcPOC.UploadInfo" MaintainScrollPositionOnPostback="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>::Upload Files</title>
+    <style type="text/css">
+        .loading-panel {
+            background: rgba(0, 0, 0, 0.2) none repeat scroll 0 0;
+            position: relative;
+            width: 100%;
+        }
+
+        .loading-container {
+            background: rgba(49, 133, 156, 0.4) none repeat scroll 0 0;
+            color: #fff;
+            font-size: 90px;
+            height: 100%;
+            left: 0;
+            padding-top: 15%;
+            position: fixed;
+            text-align: center;
+            top: 0;
+            width: 100%;
+            z-index: 999999;
+        }
+     </style>
     <!-- THIS PAGE PLUGINS -->    
         <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap-datepicker.js"></script>                
@@ -68,6 +89,15 @@
                                             </asp:UpdateProgress> 
                                             <asp:ScriptManager ID="ScriptManager1" runat="server">
                                             </asp:ScriptManager>
+                                            <asp:UpdateProgress ID="updProgress" AssociatedUpdatePanelID="UpdatePanel1" runat="server">
+                                                <ProgressTemplate>   
+                                                    <div class="loading-panel">
+                                                        <div class="loading-container">
+                                                            <img src="<%= this.ResolveUrl("~/img/loaders/default.gif")%>" />
+                                                        </div>
+                                                    </div>           
+                                                </ProgressTemplate>
+                                            </asp:UpdateProgress>
                                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                                 <ContentTemplate> 
                                                     <div class="row">   
