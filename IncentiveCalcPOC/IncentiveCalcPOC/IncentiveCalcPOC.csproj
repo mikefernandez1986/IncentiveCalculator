@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
@@ -720,6 +720,7 @@
     <Content Include="js\portlet.js" />
     <Content Include="js\settings.js" />
     <Content Include="js\utils.js" />
+    <Content Include="LoginPage.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -760,7 +761,9 @@
     <Content Include="css\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="js\plugins\jquery\jquery-2.1.1.min.map" />
     <Content Include="js\plugins\tableexport\simple_html_dom.php" />
+
     <Content Include="IncentiveCalc.Master" />
+
     <None Include="Properties\PublishProfiles\Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\IncentiveCalc.pubxml" />
     <None Include="Web.Debug.config">
@@ -773,7 +776,9 @@
   <ItemGroup>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+
     <Content Include="UploadInfo.aspx" />
+
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -781,9 +786,13 @@
   <ItemGroup>
     <Compile Include="BAOLayer\FileUploaderBAO.cs" />
     <Compile Include="BAOLayer\KPIBAO.cs" />
+    <Compile Include="BAOLayer\UserRoleBAO.cs" />
+    <Compile Include="DAOLayer\UserRoleDetailsDAO.cs" />
     <Compile Include="DAOLayer\FileUploaderDAO.cs" />
     <Compile Include="DAOLayer\KPIDetailsDAO.cs" />
+    <Compile Include="Entities\UserEntities.cs" />
     <Compile Include="Entities\KPIEntities.cs" />
+    <Compile Include="Entities\RoleEntities.cs" />
     <Compile Include="GenerateKPI.aspx.cs">
       <DependentUpon>GenerateKPI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -793,8 +802,16 @@
     </Compile>
     <Compile Include="Helpers\DataTableEntensions.cs" />
     <Compile Include="Helpers\DBHelper.cs" />
+    <Compile Include="Helpers\HashHelper.cs" />
     <Compile Include="Helpers\LINQtoDataTable.cs" />
     <Compile Include="Helpers\ListExtensions.cs" />
+    <Compile Include="LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="IncentiveCalc.Master.cs">
       <DependentUpon>IncentiveCalc.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -809,6 +826,7 @@
     </Compile>
     <Compile Include="UploadInfo.aspx.designer.cs">
       <DependentUpon>UploadInfo.aspx</DependentUpon>
+
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -849,6 +867,7 @@
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
+
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
