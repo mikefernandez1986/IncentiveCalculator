@@ -15,6 +15,12 @@ namespace IncentiveCalcPOC.BAOLayer
         SuperAdmin = 3
     }
 
+    public enum AddUserResultCode
+    {
+        Success = 1,
+        UserAlreadyExists = 2,
+        Other = 3
+    }
     public class UserRoleBAO
     {
         UserRoleDetailsDAO DAO = new UserRoleDetailsDAO();
@@ -28,18 +34,33 @@ namespace IncentiveCalcPOC.BAOLayer
             return addStatus;
         }
 
-        public bool AddUser(string emailId, string firstName, string lastName, string designation, int roleId, bool enabled)
+        public AddUserResultCode AddUser(string emailId, string password, string firstName, string lastName, string designation, int roleId, string profilePicPath, bool enabled)
         {
-            bool addStatus = false;
-            UserEntities user = new UserEntities();
-            user.EmailId = emailId;
-            user.FirstName = firstName;
-            user.LastName = lastName;
-            user.Designation = designation;
-            user.RoleId = roleId;
-            user.Enabled = enabled;
-            DAO.AddUser(user);
-            return addStatus;
+            AddUserResultCode addUserResult = AddUserResultCode.Other;
+
+            UserEntities user = DAO.GetUser(emailId);
+            if (user.EmailId != null)
+            {
+                addUserResult = AddUserResultCode.UserAlreadyExists;
+
+            }
+            else
+            { 
+                user = new UserEntities();
+                user.EmailId = emailId.Trim();
+                user.Password = new HashHelper().CreateHashWithSalt(password);
+                user.FirstName = firstName.Trim();
+                user.LastName = lastName.Trim();
+                user.Designation = designation.Trim();
+                user.RoleId = roleId;
+                user.ProfilePicPath = profilePicPath;
+                user.Enabled = enabled;
+                if (DAO.AddUser(user))
+                {
+                    addUserResult = AddUserResultCode.Success;
+                }
+            }
+            return addUserResult;
         }
 
         public List<RoleEntities> GetRoles()
