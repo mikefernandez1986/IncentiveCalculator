@@ -210,6 +210,7 @@
     <Content Include="css\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="css\fullcalendar\fullcalendar.css" />
     <Content Include="css\jquery\jquery-ui.min.css" />
+    <Content Include="css\login.css" />
     <Content Include="css\mcustomscrollbar\jquery.mCustomScrollbar.css" />
     <Content Include="css\nvd3\nv.d3.css" />
     <Content Include="css\rickshaw\rickshaw.css" />
@@ -218,6 +219,7 @@
     <Content Include="css\theme-blue.css" />
     <Content Include="css\theme-brown.css" />
     <Content Include="css\theme-default.css" />
+    <Content Include="css\theme-default30-1-18.css" />
     <Content Include="css\theme-white.css" />
     <Content Include="fileupload.html" />
     <Content Include="GenerateKPI.aspx" />
@@ -294,6 +296,8 @@
     <Content Include="img\jquery\ui-icons_ffffff_256x240.png" />
     <Content Include="img\loader4.gif" />
     <Content Include="img\loaders\default.gif" />
+    <Content Include="img\lock.png" />
+    <Content Include="img\loginbg.jpg" />
     <Content Include="img\logo%402x.png" />
     <Content Include="img\logo-grey%402x.png" />
     <Content Include="img\logo-grey.png" />
@@ -310,6 +314,7 @@
     <Content Include="img\themes\brown.jpg" />
     <Content Include="img\themes\default.jpg" />
     <Content Include="img\themes\light.jpg" />
+    <Content Include="img\user.png" />
     <Content Include="js\actions.js" />
     <Content Include="js\Chart.bundle.js" />
     <Content Include="js\demo_charts_morris.js" />
