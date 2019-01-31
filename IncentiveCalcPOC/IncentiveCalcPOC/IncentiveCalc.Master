@@ -23,8 +23,7 @@
         <script type="text/javascript" src="js/plugins.js"></script>        
         <script type="text/javascript" src="js/actions.js"></script>                
     <!-- END PLUGINS -->  
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous" />
-   
+      
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -64,7 +63,12 @@
                     <li class="active"><a href="index.html"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a> </li>                    
                     <li><a href="#"><span class="fa fa-user"></span> <span class="xn-text">Employee List</span></a></li>
                     
-                    <li><a href="#"><span class="fa fa-user"></span> <span class="xn-text">Admin</span></a></li>   
+                    <li class="xn-openable"><a href="#"><span class="fa fa-user"></span> <span class="xn-text">Admin</span></a>
+					<ul>                                    
+                                    <li><a href="#"><span class="fa fa-desktop"></span> App Login</a></li>
+                                    <li><a href="#"><span class="fa fa-desktop"></span> Website</a></li>
+                                </ul>
+								</li>   
 
 					<li><a href="#"><span class="fa fa-user"></span> <span class="xn-text">Super Admin</span></a></li>   					
                     
@@ -81,6 +85,7 @@
                 <ul class="breadcrumb">
                     <li><a href="#">Home</a></li>                    
                     <li class="active">Dashboard</li>
+					<li style="float:right;"><a href="login.aspx"><b><span class="fa fa-sign-out"></span> LOGOUT</b><a/></li>
                 </ul>
                 <!-- END BREADCRUMB -->                       
                 

@@ -21,8 +21,7 @@ namespace IncentiveCalcPOC
             bool validUser = BAO.ValidateUser(EmailTxtBox.Text, PwdTxtBox.Text);
             if (validUser)
             {
-                //redirect to master page
-                Response.Redirect("GenerateKPI.aspx"); //redirect to master page
+                Response.Redirect("UploadInfo.aspx"); 
             }
             else
             {
