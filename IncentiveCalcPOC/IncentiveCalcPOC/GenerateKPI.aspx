@@ -11,15 +11,16 @@
         
     <link rel="icon" href="img/logo.jpg" type="image/x-icon" />
     <!-- END META SECTION -->
-    
+    <!-->
     <!-- CSS INCLUDE -->        
     <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
     <!-- EOF CSS INCLUDE -->   
     <!-- START PLUGINS -->
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
-    <%--comments 1 --%>                
+
+        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>                
+
         <!-- END PLUGINS -->  
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous" />
    
