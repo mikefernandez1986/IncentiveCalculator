@@ -16,6 +16,7 @@ namespace IncentiveCalcPOC.Entities
         public int RoleId { get; set; }
         public string RoleName { get; set; }
         public bool Enabled { get; set; }
+        public string ProfilePicPath { get; set; }
         public DateTime LastUpdated { get; set; }
     }
 }
