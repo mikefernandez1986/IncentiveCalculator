@@ -98,6 +98,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddUser.aspx" />
     <Content Include="assets\filetree\jqueryFileTree.asp" />
     <Content Include="assets\filetree\jqueryFileTree.aspx" />
     <Content Include="assets\fileupload\cors\postmessage.html" />
@@ -134,6 +135,9 @@
     <Content Include="assets\images\users\user5.jpg" />
     <Content Include="assets\images\users\user6.jpg" />
     <Content Include="assets\images\users\user7.jpg" />
+    <Content Include="assets\js\jquery.2.1.1.min.js" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\jquery.mobile.custom.min.js" />
     <Content Include="assets\uploads\Images\Animal 48.jpg" />
     <Content Include="assets\uploads\Images\Lotus Sport Exige Gt3 01.jpg" />
     <Content Include="assets\uploads\Images\peugeot_908rc-1600x1200.jpg" />
@@ -162,6 +166,8 @@
     <Content Include="assets\uploads\MIME-Types\virus.exe" />
     <Content Include="assets\uploads\MIME-Types\vmware-win-ie8-elfinder.png" />
     <Content Include="assets\uploads\MIME-Types\YUICompressor.java" />
+    <Content Include="css\ace-rtl.min.css" />
+    <Content Include="css\ace.min.css" />
     <Content Include="css\animate\animate.css" />
     <Content Include="css\animate\animate.min.css" />
     <Content Include="css\blueimp\blueimp-gallery.min.css" />
@@ -198,11 +204,14 @@
     <Content Include="css\codemirror\theme\xq-dark.css" />
     <Content Include="css\codemirror\theme\xq-light.css" />
     <Content Include="css\dropzone\dropzone.css" />
+    <Content Include="css\fontawesome\4.2.0\css\font-awesome.min.css" />
+    <Content Include="css\fontawesome\4.2.0\fonts\fontawesome-webfont.svg" />
     <Content Include="css\fontawesome\font-awesome.min.css" />
     <Content Include="css\fonts\fontawesome-webfont.svg" />
     <Content Include="css\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="css\fullcalendar\fullcalendar.css" />
     <Content Include="css\jquery\jquery-ui.min.css" />
+    <Content Include="css\login.css" />
     <Content Include="css\mcustomscrollbar\jquery.mCustomScrollbar.css" />
     <Content Include="css\nvd3\nv.d3.css" />
     <Content Include="css\rickshaw\rickshaw.css" />
@@ -211,6 +220,7 @@
     <Content Include="css\theme-blue.css" />
     <Content Include="css\theme-brown.css" />
     <Content Include="css\theme-default.css" />
+    <Content Include="css\theme-default30-1-18.css" />
     <Content Include="css\theme-white.css" />
     <Content Include="fileupload.html" />
     <Content Include="GenerateKPI.aspx" />
@@ -287,6 +297,8 @@
     <Content Include="img\jquery\ui-icons_ffffff_256x240.png" />
     <Content Include="img\loader4.gif" />
     <Content Include="img\loaders\default.gif" />
+    <Content Include="img\lock.png" />
+    <Content Include="img\loginbg.jpg" />
     <Content Include="img\logo%402x.png" />
     <Content Include="img\logo-grey%402x.png" />
     <Content Include="img\logo-grey.png" />
@@ -303,6 +315,7 @@
     <Content Include="img\themes\brown.jpg" />
     <Content Include="img\themes\default.jpg" />
     <Content Include="img\themes\light.jpg" />
+    <Content Include="img\user.png" />
     <Content Include="js\actions.js" />
     <Content Include="js\Chart.bundle.js" />
     <Content Include="js\demo_charts_morris.js" />
@@ -720,6 +733,7 @@
     <Content Include="js\portlet.js" />
     <Content Include="js\settings.js" />
     <Content Include="js\utils.js" />
+    <Content Include="LoginPage.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -760,9 +774,10 @@
     <Content Include="css\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="js\plugins\jquery\jquery-2.1.1.min.map" />
     <Content Include="js\plugins\tableexport\simple_html_dom.php" />
-
     <Content Include="IncentiveCalc.Master" />
-
+    <Content Include="css\fontawesome\4.2.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="css\fontawesome\4.2.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="css\fontawesome\4.2.0\fonts\fontawesome-webfont.woff" />
     <None Include="Properties\PublishProfiles\Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\IncentiveCalc.pubxml" />
     <None Include="Web.Debug.config">
@@ -775,19 +790,28 @@
   <ItemGroup>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-
     <Content Include="UploadInfo.aspx" />
-
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddUser.aspx.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddUser.aspx.designer.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BAOLayer\FileUploaderBAO.cs" />
     <Compile Include="BAOLayer\KPIBAO.cs" />
+    <Compile Include="BAOLayer\UserRoleBAO.cs" />
+    <Compile Include="DAOLayer\UserRoleDetailsDAO.cs" />
     <Compile Include="DAOLayer\FileUploaderDAO.cs" />
     <Compile Include="DAOLayer\KPIDetailsDAO.cs" />
+    <Compile Include="Entities\UserEntities.cs" />
     <Compile Include="Entities\KPIEntities.cs" />
+    <Compile Include="Entities\RoleEntities.cs" />
     <Compile Include="GenerateKPI.aspx.cs">
       <DependentUpon>GenerateKPI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -797,9 +821,16 @@
     </Compile>
     <Compile Include="Helpers\DataTableEntensions.cs" />
     <Compile Include="Helpers\DBHelper.cs" />
+    <Compile Include="Helpers\HashHelper.cs" />
     <Compile Include="Helpers\LINQtoDataTable.cs" />
     <Compile Include="Helpers\ListExtensions.cs" />
-
+    <Compile Include="LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="IncentiveCalc.Master.cs">
       <DependentUpon>IncentiveCalc.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -814,11 +845,13 @@
     </Compile>
     <Compile Include="UploadInfo.aspx.designer.cs">
       <DependentUpon>UploadInfo.aspx</DependentUpon>
-
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="IncentiveInfo\" />
+    <Folder Include="IncentiveInfo\ProfileImages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

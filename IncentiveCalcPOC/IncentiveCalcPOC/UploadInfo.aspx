@@ -15,6 +15,7 @@
          <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="js/plugins/tableexport/tableExport.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-filestyle/2.1.0/bootstrap-filestyle.js"></script>
+        <style>.kv-fileinput-upload {display:none;}</style>
         <!-- END PAGE PLUGINS -->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -29,7 +30,7 @@
                         <div class="panel-body">
                             <h3>Select Upload File type</h3>
                                                                      
-                            <%--<form enctype="multipart/form-data" class="form-horizontal"> --%>                                       
+                            <div class="form-horizontal">                                    
                                 <div class="form-group">
                                     <div class="col-md-12">
                                         <label>Select one option from below</label>   
@@ -40,7 +41,7 @@
                                         </asp:DropDownList> 
                                     </div>                                            
                                 </div>                                        
-                            <%--</form>--%>
+                           </div>
                         </div>
                     </div>
                 </div>
@@ -51,7 +52,7 @@
                         <div class="panel-body">
                             <h3>File Upload</h3>
                                                                      
-                            <%--<form enctype="multipart/form-data" class="form-horizontal"> --%>                                       
+                            <div class="form-horizontal">                                    
                                 <div class="form-group">
                                     <div class="col-md-12">
                                         <label>Upload File</label>
@@ -72,10 +73,10 @@
                                                 <ContentTemplate> 
                                                     <div class="row">   
                                                         <div class="col-md-9">                                                           
-                                                            <asp:FileUpload ID="FileUpload1" runat="server" CssClass="filestyle" /> 
+                                                            <asp:FileUpload ID="FileUpload1" runat="server" CssClass="file" /> 
                                                         </div>
-                                                        <div class="col-md-3">
-                                                            <asp:Button ID="btn_FileUpload" CssClass="btn btn-success" runat="server" Text="Upload a File" OnClick="btnUpload_Click"  /> 
+                                                        <div class="col-md-3" style="margin-left:-20px;">
+                                                            <asp:Button ID="btn_FileUpload" CssClass="btn btn-success" runat="server" Text="&uArr; Upload a File" OnClick="btnUpload_Click"  /> 
                                                         </div> 
                                                     </div>                  
                                                 </ContentTemplate>
@@ -88,7 +89,7 @@
                                             
                                 </div>
                                         
-                            <%--</form>--%>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -156,5 +157,29 @@
           
     </script>
     <!--  SCRIPT END -->
+    
+    <script>
+            $(function(){
+                $("#file-simple").fileinput({
+                        showUpload: false,
+                        showCaption: false,
+                        browseClass: "btn btn-danger",
+                        fileType: "any"
+                });            
+                $("#filetree").fileTree({
+                    root: '/',
+                    script: 'assets/filetree/jqueryFileTree.php',
+                    expandSpeed: 100,
+                    collapseSpeed: 100,
+                    multiFolder: false                    
+                }, function(file) {
+                    alert(file);
+                }, function(dir){
+                    setTimeout(function(){
+                        page_content_onresize();
+                    },200);                    
+                });                
+            });            
+        </script>
+        
 </asp:Content>
-

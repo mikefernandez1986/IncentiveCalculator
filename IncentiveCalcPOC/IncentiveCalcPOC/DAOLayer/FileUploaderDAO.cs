@@ -93,6 +93,24 @@ namespace IncentiveCalcPOC.DAOLayer
 
         }
 
+        public bool ProcessData()
+        {
+            bool status = false;
+            try
+            {
+                SqlDataReader dr = SqlHelper.ExecuteReader(sqlConnectionString, CommandType.StoredProcedure, "usp_CASA_GenerateRating");
+                dr.Close();
+                status = true;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return status;
+        }
+
         public DataTable ConvertExcelToDataTable(string FileName)
         {
             DataTable dtResult = null;

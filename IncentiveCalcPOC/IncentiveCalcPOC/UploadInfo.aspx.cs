@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using IncentiveCalcPOC.BAOLayer;
+using System.Threading.Tasks;
 
 namespace IncentiveCalcPOC
 {
@@ -15,6 +16,7 @@ namespace IncentiveCalcPOC
         protected void Page_Load(object sender, EventArgs e)
         {
             tb_KPIDetails.InnerHtml = KPI_BAO.GetKPIDetails();
+           // ScriptManager1.RegisterAsyncPostBackControl(btn_FileUpload);
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)
@@ -31,21 +33,32 @@ namespace IncentiveCalcPOC
 
                         bool UploadFile = BAO.UploadFile(FileUpload1.FileName, path, ddlFileType.SelectedValue);
 
-                        ///UploadDetails.Text = "File Uploaded Successfully";
+                        var output = ProcessFilesAsync();
+
+                        UploadDetails.Text = "File Uploaded Successfully!! Processing the file in background";
 
                     }
 
                     catch (Exception ex)
                     {
-                        // UploadDetails.Text = ex.Message;
+                         UploadDetails.Text = ex.Message;
                     }
                 }
                 else
                 {
-                    // UploadDetails.Text = "Invalid file format. Please upload .xls files.";
+                     UploadDetails.Text = "Invalid file format. Please upload .xls files.";
                 }
 
             }
+        }
+
+        public async Task<bool> ProcessFilesAsync()
+        {
+            var processFiles =  Task.Run(() => BAO.processFiles());
+            var updateInfo = Task.Run(() => KPI_BAO.GetKPIDetails());
+            tb_KPIDetails.InnerHtml = Convert.ToString(await updateInfo);
+            var response = await processFiles;  
+            return Convert.ToBoolean(response);
         }
     }
 }

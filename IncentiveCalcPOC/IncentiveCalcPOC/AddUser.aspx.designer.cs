@@ -10,87 +10,105 @@
 namespace IncentiveCalcPOC {
     
     
-    public partial class UploadInfo {
+    public partial class AddUser {
         
         /// <summary>
-        /// ddlFileType control.
+        /// ResultLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFileType;
+        protected global::System.Web.UI.WebControls.Label ResultLbl;
         
         /// <summary>
-        /// UpdateProgress1 control.
+        /// EmailTxtBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdateProgress UpdateProgress1;
+        protected global::System.Web.UI.WebControls.TextBox EmailTxtBox;
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// PwdTxtBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::System.Web.UI.WebControls.TextBox PwdTxtBox;
         
         /// <summary>
-        /// updProgress control.
+        /// ReEnterPwdTxtBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdateProgress updProgress;
+        protected global::System.Web.UI.WebControls.TextBox ReEnterPwdTxtBox;
         
         /// <summary>
-        /// UpdatePanel1 control.
+        /// FirstNameTxtBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.TextBox FirstNameTxtBox;
         
         /// <summary>
-        /// FileUpload1 control.
+        /// LastNameTxtBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::System.Web.UI.WebControls.TextBox LastNameTxtBox;
         
         /// <summary>
-        /// btn_FileUpload control.
+        /// DesignationTxtBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_FileUpload;
+        protected global::System.Web.UI.WebControls.TextBox DesignationTxtBox;
         
         /// <summary>
-        /// UploadDetails control.
+        /// ProfilePicFileUpld control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label UploadDetails;
+        protected global::System.Web.UI.WebControls.FileUpload ProfilePicFileUpld;
         
         /// <summary>
-        /// tb_KPIDetails control.
+        /// RoleDdl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tb_KPIDetails;
+        protected global::System.Web.UI.WebControls.DropDownList RoleDdl;
+        
+        /// <summary>
+        /// IsActiveRadioBtnList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList IsActiveRadioBtnList;
+        
+        /// <summary>
+        /// AddUserBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddUserBtn;
     }
 }
