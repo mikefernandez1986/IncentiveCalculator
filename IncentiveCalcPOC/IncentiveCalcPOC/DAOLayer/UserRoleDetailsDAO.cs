@@ -94,13 +94,13 @@ namespace IncentiveCalcPOC.DAOLayer
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         cmd.Parameters.Add("@EmailId", SqlDbType.VarChar).Value = userItem.EmailId;
-                        //Need to hash and encrypt password//
-                        cmd.Parameters.Add("@Password", SqlDbType.VarChar).Value = userItem.Password;
+                        cmd.Parameters.Add("@Passwrd", SqlDbType.VarChar).Value = userItem.Password;
                         cmd.Parameters.Add("@FirstName", SqlDbType.VarChar).Value = userItem.FirstName;
                         cmd.Parameters.Add("@LastName", SqlDbType.VarChar).Value = userItem.LastName;
                         cmd.Parameters.Add("@Designation", SqlDbType.VarChar).Value = userItem.Designation;
+                        cmd.Parameters.Add("@ProfileImageFileName", SqlDbType.VarChar).Value = userItem.ProfilePicPath;
                         cmd.Parameters.Add("@RoleId", SqlDbType.Int).Value = userItem.RoleId;
-                        cmd.Parameters.Add("@Enabled", SqlDbType.Bit).Value = userItem.Enabled ? 1 : 0;
+                        cmd.Parameters.Add("@Enabld", SqlDbType.Bit).Value = userItem.Enabled ? 1 : 0;
 
                         conn.Open();
                         cmd.ExecuteNonQuery();
@@ -141,7 +141,8 @@ namespace IncentiveCalcPOC.DAOLayer
                         entities.FirstName = Convert.ToString(dr["FirstName"]);
                         entities.LastName = Convert.ToString(dr["LastName"]);
                         entities.Designation = Convert.ToString(dr["Designation"]);
-                        entities.Enabled = Convert.ToBoolean(dr["Enabled"]);
+                        entities.ProfilePicPath = Convert.ToString(dr["ProfileImageFileName"]);
+                        entities.Enabled = Convert.ToBoolean(dr["Enabld"]);
                         entities.LastUpdated = Convert.ToDateTime(dr["LastUpdated"]);
                         entities.RoleId = Convert.ToInt32(dr["RoleId"]);
                         entities.RoleName = Convert.ToString(dr["RoleName"]);
@@ -169,6 +170,7 @@ namespace IncentiveCalcPOC.DAOLayer
             {
                 if (ds.Tables[0].Rows.Count > 0)
                 {
+                    userInfo.EmailId = emailStr;
                     userInfo.Password = ds.Tables[0].Rows[0].ItemArray.GetValue(2).ToString();
                 }
             }
