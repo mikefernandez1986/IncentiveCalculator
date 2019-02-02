@@ -24,13 +24,14 @@ namespace IncentiveCalcPOC.BAOLayer
     public class UserRoleBAO
     {
         UserRoleDetailsDAO DAO = new UserRoleDetailsDAO();
-        public bool AddRole(string roleName, int accessLevel)
+        public bool AddRole(string roleName, string roleDesc, int accessLevel)
         {
             bool addStatus = false;
             RoleEntities role = new RoleEntities();
             role.RoleName = roleName;
+            role.RoleDesc = roleDesc;
             role.AccessLevelId = accessLevel;
-            DAO.AddRole(role);
+            addStatus = DAO.AddRole(role);
             return addStatus;
         }
 
@@ -73,17 +74,17 @@ namespace IncentiveCalcPOC.BAOLayer
             return DAO.GetUsers();
         }
 
-        public bool ValidateUser(string emailStr, string pwdStr)
+        public UserEntities ValidateAndGetUser(string emailStr, string pwdStr)
         {
             UserEntities userInfo = DAO.GetUser(emailStr);
             HashHelper hashHelper = new HashHelper();
             if (hashHelper.CompareHash(pwdStr, userInfo.Password))
             {
-                return true;
+                return userInfo;
             }
             else
             {
-                return false;
+                return null;
             }
         }
     }

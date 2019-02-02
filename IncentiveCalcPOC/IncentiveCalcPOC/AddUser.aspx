@@ -30,13 +30,11 @@
                     <div class="panel-heading">
                         <h3 class="panel-title"><strong>Add User</strong></h3>
                         <ul class="panel-controls">
-                            <%--                            <li><a href="http://webjungle.in/incentive-calculator/formpage.html#" class="panel-remove"><span class="fa fa-times"></span></a></li>--%>
                             <asp:Label ID="ResultLbl" runat="server" Font-Bold="True" ForeColor="Red"></asp:Label>
                         </ul>
                     </div>
 
                     <div class="panel-body">
-                        <%--            <div class="form-horizontal" >--%>
                             <div class="form-group">
                                 <label class="col-md-2 col-xs-12 control-label">Email:</label>
                                 <div class="col-md-6 col-xs-12">                                            
@@ -140,7 +138,7 @@
                     </div>
 
                     <div style="float:left; margin-bottom:20px; margin-left:200px;">                                                                
-                        <asp:Button ID="AddUserBtn" runat="server" Text="Add User" OnClick="AddUserBtn_Click" OnClientClick="return validateInput();" />
+                        <asp:Button ID="AddUserBtn" runat="server" Text="Add User" CssClass="btn btn-success" OnClick="AddUserBtn_Click" OnClientClick="return validateInput();" />
                     </div>
 
                 </div>
