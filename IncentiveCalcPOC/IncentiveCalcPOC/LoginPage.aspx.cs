@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using IncentiveCalcPOC.BAOLayer;
+using IncentiveCalcPOC.Entities;
 
 namespace IncentiveCalcPOC
 {
@@ -18,9 +19,10 @@ namespace IncentiveCalcPOC
         protected void LoginBtn_Click(object sender, EventArgs e)
         {
             UserRoleBAO BAO = new UserRoleBAO();
-            bool validUser = BAO.ValidateUser(EmailTxtBox.Text, PwdTxtBox.Text);
-            if (validUser)
+            UserEntities validUser = BAO.ValidateAndGetUser(EmailTxtBox.Text, PwdTxtBox.Text);
+            if (validUser != null)
             {
+                Session.Add("User", validUser);
                 Response.Redirect("UploadInfo.aspx"); 
             }
             else

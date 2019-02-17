@@ -18,5 +18,12 @@ namespace IncentiveCalcPOC.Entities
         public bool Enabled { get; set; }
         public string ProfilePicPath { get; set; }
         public DateTime LastUpdated { get; set; }
+
+        public RoleEntities Role { get; set; }
+
+        public UserEntities()
+        {
+            Role = new RoleEntities();
+        }
     }
 }

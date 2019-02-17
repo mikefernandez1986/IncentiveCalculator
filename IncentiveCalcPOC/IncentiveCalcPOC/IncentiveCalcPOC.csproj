@@ -788,6 +788,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddRole.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="UploadInfo.aspx" />
@@ -839,6 +840,13 @@
       <DependentUpon>IncentiveCalc.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AddRole.aspx.cs">
+      <DependentUpon>AddRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddRole.aspx.designer.cs">
+      <DependentUpon>AddRole.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UploadInfo.aspx.cs">
       <DependentUpon>UploadInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
