@@ -61,7 +61,7 @@ namespace IncentiveCalcWcfLib.DAOLayer
                 bulkCopy.WriteToServer(dt);
                 bulkCopy.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -129,12 +129,8 @@ namespace IncentiveCalcWcfLib.DAOLayer
             return status;
         }
 
-        public DataTable ConvertExcelToDataTable(string FileName)
+        public DataTable ConvertExcelToDataTable(string FileName, string ConfigSheetName)
         {
-            //var appLog = new EventLog("Application");
-            //appLog.Source = "IncentiveCalcService";
-            //appLog.WriteEntry(sqlConnectionString);
-
             DataTable dtResult = null;
             int totalSheet = 0; //No of sheets on excel file  
             using (OleDbConnection objConn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + FileName + ";Extended Properties='Excel 12.0;HDR=YES;IMEX=1;';"))
@@ -147,12 +143,25 @@ namespace IncentiveCalcWcfLib.DAOLayer
                 string sheetName = string.Empty;
                 if (dt != null)
                 {
-                    var tempDataTable = (from dataRow in dt.AsEnumerable()
+                    DataTable tempDataTable;
+                    if ((ConfigSheetName != null) && (ConfigSheetName != ""))
+                    {
+
+                        tempDataTable = (from dataRow in dt.AsEnumerable()
+                                         where ((dataRow["TABLE_NAME"].ToString().Contains(ConfigSheetName)) &&
+                                          (!dataRow["TABLE_NAME"].ToString().Contains("FilterDatabase")))
+                                         select dataRow).CopyToDataTable();
+                    }
+                    else
+                    {
+                        tempDataTable = (from dataRow in dt.AsEnumerable()
                                          where !dataRow["TABLE_NAME"].ToString().Contains("FilterDatabase")
                                          select dataRow).CopyToDataTable();
+                    }
                     dt = tempDataTable;
                     totalSheet = dt.Rows.Count;
                     sheetName = dt.Rows[0]["TABLE_NAME"].ToString();
+
                 }
                 cmd.Connection = objConn;
                 cmd.CommandType = CommandType.Text;
