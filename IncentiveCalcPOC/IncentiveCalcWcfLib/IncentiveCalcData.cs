@@ -23,8 +23,9 @@ namespace IncentiveCalcWcfLib
         public void UploadDataFile(string fileType, string fileName, bool processDataFlag)
         {
             string filePath = GetConfigFilePath(fileType);
+            string sheetName = GetConfigSheetName(fileType);
 
-            bao.UploadFile(fileName, filePath, fileType.ToUpper());
+            bao.UploadFile(fileName, filePath, sheetName, fileType.ToUpper());
     
             if (processDataFlag)
             {
@@ -53,5 +54,11 @@ namespace IncentiveCalcWcfLib
             return filePath;
         }
 
+        private string GetConfigSheetName(string FileType)
+        {
+            string keyStr = FileType + "_SheetName";
+            string sheetName = ConfigurationManager.AppSettings[keyStr];
+            return sheetName;
+        }
     }
 }

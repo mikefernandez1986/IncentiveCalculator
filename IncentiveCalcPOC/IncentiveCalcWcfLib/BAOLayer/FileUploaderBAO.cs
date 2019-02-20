@@ -20,16 +20,16 @@ namespace IncentiveCalcWcfLib.BAOLayer
         public enum FileTypes { CASA, LOAN, CARD, ALL }
 
         FileUploaderDAO DAO = new FileUploaderDAO();
-        public bool UploadFile(string FileName, string FilePath, string fileType)
+        public bool UploadFile(string FileName, string FilePath, string SheetName, string FileType)
         {
             bool status = false;
-            string tableName = "tbl_" + fileType.ToUpper() + "_Staging";
+            string tableName = "tbl_" + FileType.ToUpper() + "_Staging";
             try
             {
-                long FileId = DAO.UploadFileDetails(FileName, fileType);
+                long FileId = DAO.UploadFileDetails(FileName, FileType);
                 if(FileId > 0)
                 {
-                    DataTable dt = DAO.ConvertExcelToDataTable(FilePath + "\\" + FileName);
+                    DataTable dt = DAO.ConvertExcelToDataTable(FilePath + "\\" + FileName, SheetName);
                     dt.Columns.Add("FileId", typeof(System.Int32));
                     foreach (DataRow dr in dt.Rows)
                     {
