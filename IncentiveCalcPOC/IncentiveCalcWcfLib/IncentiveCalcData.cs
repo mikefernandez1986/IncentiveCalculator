@@ -22,10 +22,8 @@ namespace IncentiveCalcWcfLib
 
         public void UploadDataFile(string fileType, string fileName, bool processDataFlag)
         {
-            string filePath = GetConfigFilePath(fileType);
-            string sheetName = GetConfigSheetName(fileType);
 
-            bao.UploadFile(fileName, filePath, sheetName, fileType.ToUpper());
+            var uploadTaskOutput = UploadFilesAsync(fileType, fileName);
     
             if (processDataFlag)
             {
@@ -36,13 +34,23 @@ namespace IncentiveCalcWcfLib
 
         public void ProcessDataFile(string FileType)
         {
-            var output = ProcessFilesAsync(FileType.ToUpper());
+            var ProcessTaskOutput = ProcessFilesAsync(FileType.ToUpper());
         }
 
         private async Task<bool> ProcessFilesAsync(string FileType)
         {
             var processFiles = Task.Run(() => bao.ProcessDataFiles(FileType));
             var response = await processFiles;
+            return Convert.ToBoolean(response);
+        }
+
+        private async Task<bool> UploadFilesAsync(string fileType, string fileName)
+        {
+            string filePath = GetConfigFilePath(fileType);
+            string sheetName = GetConfigSheetName(fileType);
+
+            var uploadFiles = Task.Run(() => bao.UploadFile(fileName, filePath, sheetName, fileType.ToUpper()));
+            var response = await uploadFiles;
             return Convert.ToBoolean(response);
         }
 
