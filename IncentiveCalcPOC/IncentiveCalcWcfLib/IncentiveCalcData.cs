@@ -6,19 +6,32 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-using IncentiveCalcWcfLib.Entities;
 using IncentiveCalcWcfLib.BAOLayer;
 
 namespace IncentiveCalcWcfLib
 {
     public class IncentiveCalcData : IIncentiveCalcData
     {
-        FileUploaderBAO bao = new FileUploaderBAO();
-        public List<EmpPayoutEntity> GetCurrentMonthPayout(string productType)
+        FileUploaderBAO UploadBao = new FileUploaderBAO();
+        FileDownloadBAO payoutBAO = new FileDownloadBAO();
+
+        public string CreateCumulativePayout()
         {
-            PayoutBAO bao = new PayoutBAO();
-            return bao.GetEmpPayoutDetails(productType);
+            return payoutBAO.CreateCumulativePayoutFile();
         }
+
+
+        public string CreateProductPayout(string ProductCode)
+        {
+            return payoutBAO.CreateProductPayoutFile(ProductCode);
+        }
+
+        
+        public string CreateEmpPayout(string EmpNo)
+        {
+            return payoutBAO.CreateEmpPayoutFile(EmpNo);
+        }
+
 
         public void UploadDataFile(string fileType, string fileName, bool processDataFlag)
         {
@@ -37,9 +50,15 @@ namespace IncentiveCalcWcfLib
             var ProcessTaskOutput = ProcessFilesAsync(FileType.ToUpper());
         }
 
+        //public void AccumulateRetainedLoyaltyAmounts(Boolean ReprocessFlag)
+        //{
+        //    //To do
+        //}
+
+
         private async Task<bool> ProcessFilesAsync(string FileType)
         {
-            var processFiles = Task.Run(() => bao.ProcessDataFiles(FileType));
+            var processFiles = Task.Run(() => UploadBao.ProcessDataFiles(FileType));
             var response = await processFiles;
             return Convert.ToBoolean(response);
         }
@@ -49,7 +68,7 @@ namespace IncentiveCalcWcfLib
             string filePath = GetConfigFilePath(fileType);
             string sheetName = GetConfigSheetName(fileType);
 
-            var uploadFiles = Task.Run(() => bao.UploadFile(fileName, filePath, sheetName, fileType.ToUpper()));
+            var uploadFiles = Task.Run(() => UploadBao.UploadFile(fileName, filePath, sheetName, fileType.ToUpper()));
             var response = await uploadFiles;
             return Convert.ToBoolean(response);
         }

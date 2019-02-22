@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
 
-using IncentiveCalcWcfLib.Entities;
-
 namespace IncentiveCalcWcfLib
 {
 
@@ -14,13 +12,22 @@ namespace IncentiveCalcWcfLib
     public interface IIncentiveCalcData
     {
         [OperationContract]
-        List<EmpPayoutEntity> GetCurrentMonthPayout(string productType);
+        string CreateCumulativePayout();
+
+        [OperationContract]
+        string CreateProductPayout(string ProductCode);
+
+        [OperationContract]
+        string CreateEmpPayout(string EmpNo);
 
         [OperationContract]
         void UploadDataFile(string fileType, string fileName, bool processDataFlag);
 
         [OperationContract]
         void ProcessDataFile(string fileType);
+
+       // [OperationContract]
+        //void AccumulateRetainedLoyaltyAmounts(Boolean ReprocessFlag);
 
     }
 }
