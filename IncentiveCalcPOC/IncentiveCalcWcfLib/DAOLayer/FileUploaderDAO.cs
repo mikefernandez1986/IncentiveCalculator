@@ -110,25 +110,6 @@ namespace IncentiveCalcWcfLib.DAOLayer
 
         }
 
-        public bool ProcessData()
-        {
-            bool status = false;
-            try
-            {
-                SqlDataReader dr = SqlHelper.ExecuteReader(sqlConnectionString, CommandType.StoredProcedure, "usp_CASA_GenerateRating");
-                dr.Close();
-                status = true;
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-            return status;
-        }
-
         public DataTable ConvertExcelToDataTable(string FileName, string ConfigSheetName)
         {
             DataTable dtResult = null;
@@ -243,6 +224,11 @@ namespace IncentiveCalcWcfLib.DAOLayer
             }
             return fileId;
         }
+
+        //public void AccumulateRetainedLoyaltyAmounts(Boolean IsReprocess)
+        //{
+        //    //To do
+        //}
 
     }
 }

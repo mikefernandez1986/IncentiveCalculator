@@ -17,7 +17,7 @@ namespace IncentiveCalcWcfLib.BAOLayer
     public class FileUploaderBAO
     {
         public enum FileStatusCodes { New, Staged, InProcess, Complete, Error}
-        public enum FileTypes { CASA, LOAN, CARD, ALL }
+        //public enum FileTypes { CASA, LOAN, CARD, ALL }
 
         FileUploaderDAO DAO = new FileUploaderDAO();
         public bool UploadFile(string FileName, string FilePath, string SheetName, string FileType)
@@ -54,20 +54,6 @@ namespace IncentiveCalcWcfLib.BAOLayer
             return status;
         }
         
-        public bool processFiles()
-        {
-            bool succeess = false;
-            try
-            {
-                DAO.ProcessData();
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-            return succeess;
-        }
-
         public bool ProcessDataFiles(string FileType)
         {
             bool status = false;
@@ -98,5 +84,10 @@ namespace IncentiveCalcWcfLib.BAOLayer
             }
             return status;
         }
+
+        //public void AccumulateRetainedLoyaltyAmounts(Boolean IsReprocess)
+        //{
+        //    //To dO
+        //}
     }
 }
