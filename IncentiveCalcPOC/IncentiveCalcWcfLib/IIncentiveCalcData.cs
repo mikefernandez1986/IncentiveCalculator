@@ -26,8 +26,8 @@ namespace IncentiveCalcWcfLib
         [OperationContract]
         void ProcessDataFile(string fileType);
 
-       // [OperationContract]
-        //void AccumulateRetainedLoyaltyAmounts(Boolean ReprocessFlag);
+       [OperationContract]
+        void AccumulateRetainedLoyaltyAmounts(bool ReprocessFlag);
 
     }
 }

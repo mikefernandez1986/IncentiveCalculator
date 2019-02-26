@@ -60,6 +60,7 @@ namespace IncentiveCalcWcfLib.DAOLayer
                 };
                 bulkCopy.WriteToServer(dt);
                 bulkCopy.Close();
+                status = true;
             }
             catch (Exception ex)
             {
@@ -225,10 +226,36 @@ namespace IncentiveCalcWcfLib.DAOLayer
             return fileId;
         }
 
-        //public void AccumulateRetainedLoyaltyAmounts(Boolean IsReprocess)
-        //{
-        //    //To do
-        //}
+        public void AccumulateRetainedLoyaltyAmounts(bool IsReprocess)
+        {
+            SqlConnection conn = null;
+            try
+            {
+                using (conn = new SqlConnection(sqlConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand("usp_AccumulateRetainedLoyaltyAmt", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new SqlParameter("@IsReprocess", IsReprocess ? 1 : 0));
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+
+            }
+        }
 
     }
 }
