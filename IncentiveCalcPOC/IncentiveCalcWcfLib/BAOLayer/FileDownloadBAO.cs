@@ -13,6 +13,7 @@ namespace IncentiveCalcWcfLib.BAOLayer
     {
 
         DAOLayer.FileDownloadDAO DAO = new DAOLayer.FileDownloadDAO();
+        DAOLayer.FileUploaderDAO uploadDAO = new DAOLayer.FileUploaderDAO();
 
         public string CreateEmpPayoutFile(string EmpNo)
         {
@@ -33,10 +34,17 @@ namespace IncentiveCalcWcfLib.BAOLayer
         public string CreateProductPayoutFile(string ProductCode)
         {
             string payoutFilename = "";
+            long fileId = 0;
             try
-            { 
-                payoutFilename = DAO.CreateProductPayoutFile(ProductCode);
-                DAO.InsertFileDetails(payoutFilename, ProductCode);
+            {
+                fileId = uploadDAO.GetDataFileId(ProductCode);
+                if (fileId > 0)
+                {
+                    uploadDAO.UpdateFileDetails(fileId, (int)BAOLayer.FileUploaderBAO.FileStatusCodes.InProcess);
+                    payoutFilename = DAO.CreateProductPayoutFile(ProductCode);
+                    DAO.InsertFileDetails(payoutFilename, ProductCode);
+                    uploadDAO.UpdateFileDetails(fileId, (int)BAOLayer.FileUploaderBAO.FileStatusCodes.CreatePayoutComplete);
+                }
             }
             catch (Exception ex)
             {

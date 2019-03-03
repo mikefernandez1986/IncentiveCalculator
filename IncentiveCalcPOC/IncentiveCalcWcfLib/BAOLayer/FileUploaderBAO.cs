@@ -16,7 +16,7 @@ namespace IncentiveCalcWcfLib.BAOLayer
 {
     public class FileUploaderBAO
     {
-        public enum FileStatusCodes { New, Staged, InProcess, Complete, Error}
+        public enum FileStatusCodes { New, Staged, InProcess, ProcessDataComplete, CreatePayoutComplete, Error}
 
         FileUploaderDAO DAO = new FileUploaderDAO();
         public bool UploadFile(string FileName, string FilePath, string SheetName, string FileType)
@@ -64,7 +64,7 @@ namespace IncentiveCalcWcfLib.BAOLayer
                 {
                     DAO.UpdateFileDetails(fileId, (int)FileStatusCodes.InProcess);
                     DAO.ProcessDataFile(FileType);
-                    DAO.UpdateFileDetails(fileId, (int)FileStatusCodes.Complete);
+                    DAO.UpdateFileDetails(fileId, (int)FileStatusCodes.ProcessDataComplete);
                     status = true;
                 }
                 else
