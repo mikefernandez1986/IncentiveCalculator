@@ -19,14 +19,14 @@ namespace IncentiveCalcPOC.BAOLayer
     {
         KPIDetailsDAO DAO = new KPIDetailsDAO();
 
-        public string GetKPIDetails()
+        public string getFileUploadDetails()
         {
             string KPIHtml = "";
             try
             {
-                List<KPIEntities> kpiDetails = new List<KPIEntities>();
-                kpiDetails = DAO.GetKPIDetails();
-                KPIHtml = getTableBody(kpiDetails, x => x.EmployeeCode, x => x.EmployeeName, x => x.PerformanceScore, x => x.KPIRating);
+                List<UploadDetails> uploadDetails = new List<UploadDetails>();
+                uploadDetails = DAO.getFileUploadInfo();
+                KPIHtml = getTableBody(uploadDetails, x => x.FileId, x => x.FileName, x => x.FileType, x => x.DateCreated,  x => x.ProcessedTime, x => x.StatusDesc);
             }
             catch(Exception ex)
             {

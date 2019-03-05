@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="IncentiveCalcData" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:51511/IncentiveCalc.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:51511/IncentiveCalc.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IIncentiveCalcData_CreateCumulativePayout_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCumulativePayout" />
+  </wsdl:message>
+  <wsdl:message name="IIncentiveCalcData_CreateCumulativePayout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCumulativePayoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIncentiveCalcData_CreateProductPayout_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateProductPayout" />
+  </wsdl:message>
+  <wsdl:message name="IIncentiveCalcData_CreateProductPayout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateProductPayoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIncentiveCalcData_CreateEmpPayout_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEmpPayout" />
+  </wsdl:message>
+  <wsdl:message name="IIncentiveCalcData_CreateEmpPayout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateEmpPayoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIncentiveCalcData_UploadDataFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadDataFile" />
+  </wsdl:message>
+  <wsdl:message name="IIncentiveCalcData_UploadDataFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadDataFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIncentiveCalcData_ProcessDataFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessDataFile" />
+  </wsdl:message>
+  <wsdl:message name="IIncentiveCalcData_ProcessDataFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessDataFileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IIncentiveCalcData">
+    <wsdl:operation name="CreateCumulativePayout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIncentiveCalcData/CreateCumulativePayout" message="tns:IIncentiveCalcData_CreateCumulativePayout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIncentiveCalcData/CreateCumulativePayoutResponse" message="tns:IIncentiveCalcData_CreateCumulativePayout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateProductPayout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIncentiveCalcData/CreateProductPayout" message="tns:IIncentiveCalcData_CreateProductPayout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIncentiveCalcData/CreateProductPayoutResponse" message="tns:IIncentiveCalcData_CreateProductPayout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateEmpPayout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIncentiveCalcData/CreateEmpPayout" message="tns:IIncentiveCalcData_CreateEmpPayout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIncentiveCalcData/CreateEmpPayoutResponse" message="tns:IIncentiveCalcData_CreateEmpPayout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadDataFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIncentiveCalcData/UploadDataFile" message="tns:IIncentiveCalcData_UploadDataFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIncentiveCalcData/UploadDataFileResponse" message="tns:IIncentiveCalcData_UploadDataFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIncentiveCalcData/ProcessDataFile" message="tns:IIncentiveCalcData_ProcessDataFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIncentiveCalcData/ProcessDataFileResponse" message="tns:IIncentiveCalcData_ProcessDataFile_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IIncentiveCalcData" type="tns:IIncentiveCalcData">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateCumulativePayout">
+      <soap:operation soapAction="http://tempuri.org/IIncentiveCalcData/CreateCumulativePayout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateProductPayout">
+      <soap:operation soapAction="http://tempuri.org/IIncentiveCalcData/CreateProductPayout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateEmpPayout">
+      <soap:operation soapAction="http://tempuri.org/IIncentiveCalcData/CreateEmpPayout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDataFile">
+      <soap:operation soapAction="http://tempuri.org/IIncentiveCalcData/UploadDataFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDataFile">
+      <soap:operation soapAction="http://tempuri.org/IIncentiveCalcData/ProcessDataFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IncentiveCalcData">
+    <wsdl:port name="BasicHttpBinding_IIncentiveCalcData" binding="tns:BasicHttpBinding_IIncentiveCalcData">
+      <soap:address location="http://localhost:51511/IncentiveCalc.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

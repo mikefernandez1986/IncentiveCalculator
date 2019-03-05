@@ -94,7 +94,7 @@ namespace IncentiveCalcPOC.DAOLayer
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        cmd.Parameters.Add("@EmailId", SqlDbType.VarChar).Value = userItem.EmailId;
+                        cmd.Parameters.Add("@EmailId", SqlDbType.VarChar).Value = userItem.Emp_No;
                         cmd.Parameters.Add("@Passwrd", SqlDbType.VarChar).Value = userItem.Password;
                         cmd.Parameters.Add("@FirstName", SqlDbType.VarChar).Value = userItem.FirstName;
                         cmd.Parameters.Add("@LastName", SqlDbType.VarChar).Value = userItem.LastName;
@@ -138,7 +138,7 @@ namespace IncentiveCalcPOC.DAOLayer
                     {
                         UserEntities entities = new UserEntities();
                         entities.UserId = Convert.ToInt32(dr["UserId"]);
-                        entities.EmailId = Convert.ToString(dr["EmailId"]);
+                        entities.Emp_No = Convert.ToString(dr["EmailId"]);
                         entities.FirstName = Convert.ToString(dr["FirstName"]);
                         entities.LastName = Convert.ToString(dr["LastName"]);
                         entities.Designation = Convert.ToString(dr["Designation"]);
@@ -160,28 +160,28 @@ namespace IncentiveCalcPOC.DAOLayer
             return userInfo;
         }
 
-        public UserEntities GetUser(string emailStr)
+        public UserEntities GetUser(string emp_no)
         {
             UserEntities userInfo = new UserEntities();
             DBHelper dbHelper = new DBHelper();
             SqlParameter[] sqlParams = new SqlParameter[1];
-            sqlParams[0] = new SqlParameter("EmailId", emailStr);
+            sqlParams[0] = new SqlParameter("Emp_No", emp_no);
             DataSet ds = dbHelper.GetDatasetFromSP("usp_GetUserDetails", sqlParams);
             if (ds.Tables.Count > 0)
             {
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    userInfo.EmailId = emailStr;
+                    userInfo.Emp_No = emp_no;
                     userInfo.Password = ds.Tables[0].Rows[0].ItemArray.GetValue(2).ToString();
                     userInfo.FirstName = ds.Tables[0].Rows[0].ItemArray.GetValue(3).ToString();
-                    userInfo.LastName = ds.Tables[0].Rows[0].ItemArray.GetValue(4).ToString();
-                    userInfo.Designation = ds.Tables[0].Rows[0].ItemArray.GetValue(5).ToString();
-                    userInfo.ProfilePicPath = ds.Tables[0].Rows[0].ItemArray.GetValue(6).ToString();
-                    userInfo.Enabled = Convert.ToBoolean(ds.Tables[0].Rows[0].ItemArray.GetValue(7));
-                    userInfo.LastUpdated = Convert.ToDateTime(ds.Tables[0].Rows[0].ItemArray.GetValue(8));
-                    userInfo.RoleId = Convert.ToInt32(ds.Tables[0].Rows[0].ItemArray.GetValue(9));
-                    userInfo.Role.RoleName = ds.Tables[0].Rows[0].ItemArray.GetValue(10).ToString();
-                    userInfo.Role.AccessLevelId = Convert.ToInt32(ds.Tables[0].Rows[0].ItemArray.GetValue(11));
+                   // userInfo.LastName = ds.Tables[0].Rows[0].ItemArray.GetValue(4).ToString();
+                    userInfo.Designation = ds.Tables[0].Rows[0].ItemArray.GetValue(4).ToString();
+                    userInfo.ProfilePicPath = ds.Tables[0].Rows[0].ItemArray.GetValue(5).ToString();
+                    userInfo.Enabled = Convert.ToBoolean(ds.Tables[0].Rows[0].ItemArray.GetValue(6));
+                    userInfo.LastUpdated = Convert.ToDateTime(ds.Tables[0].Rows[0].ItemArray.GetValue(7));
+                    userInfo.RoleId = Convert.ToInt32(ds.Tables[0].Rows[0].ItemArray.GetValue(8));
+                    userInfo.Role.RoleName = ds.Tables[0].Rows[0].ItemArray.GetValue(9).ToString();
+                   // userInfo.Role.AccessLevelId = Convert.ToInt32(ds.Tables[0].Rows[0].ItemArray.GetValue(10));
                 }
             }
             return userInfo;

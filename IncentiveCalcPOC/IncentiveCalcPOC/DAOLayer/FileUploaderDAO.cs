@@ -7,13 +7,40 @@ using System.Linq;
 using System.Web;
 using Microsoft.ApplicationBlocks.Data;
 using System.Data.OleDb;
+using IncentiveCalcPOC.Entities;
 
 namespace IncentiveCalcPOC.DAOLayer
 {
     public class FileUploaderDAO
     {
         private static readonly string sqlConnectionString = ConfigurationManager.ConnectionStrings["SqlConnString"].ConnectionString;
-        
+
+        public List<FileDetails> getFileTypes()
+        {
+            List<FileDetails> file = new List<FileDetails>();
+            try
+            {
+                using (SqlDataReader dr = SqlHelper.ExecuteReader(sqlConnectionString, CommandType.StoredProcedure, "usp_GetFileDetails"))
+                {
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            FileDetails details = new FileDetails();
+                            details.FileType = Convert.ToString(dr["FileType"]);
+                            details.FileTypeDesc = Convert.ToString(dr["FileTypeDesc"]);
+                            file.Add(details);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return file;
+        }
+
         public bool TruncateTable(string TableName)
         {
             bool truncateStatus = false;
@@ -30,13 +57,13 @@ namespace IncentiveCalcPOC.DAOLayer
                     truncateStatus = true;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
             finally
             {
-                if(conn != null && conn.State == ConnectionState.Open)
+                if (conn != null && conn.State == ConnectionState.Open)
                 {
                     conn.Close();
                 }
@@ -59,13 +86,13 @@ namespace IncentiveCalcPOC.DAOLayer
                 bulkCopy.WriteToServer(dt);
                 bulkCopy.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
             finally
             {
-               if(bulkCopy != null)
+                if (bulkCopy != null)
                 {
                     bulkCopy.Close();
                 }
@@ -73,13 +100,16 @@ namespace IncentiveCalcPOC.DAOLayer
             return status;
         }
 
-        public long UploadFileDetails(string FileName)
+        public long UploadFileDetails(string FileName, string FileType)
         {
             long FileId = 0;
+            SqlParameter[] sqlParams = new SqlParameter[2];
+            sqlParams[0] = new SqlParameter("FileName", FileName);
+            sqlParams[1] = new SqlParameter("FileType", FileType);
             SqlDataReader dr = SqlHelper.ExecuteReader(
-                     sqlConnectionString 
-                    ,CommandType.StoredProcedure, "usp_InsertFileInfo"
-                    , new SqlParameter("@FileName", FileName));
+                     sqlConnectionString
+                    , CommandType.StoredProcedure, "usp_InsertFileInfo"
+                    , sqlParams);
             if (dr.HasRows)
             {
                 while (dr.Read())
@@ -88,30 +118,24 @@ namespace IncentiveCalcPOC.DAOLayer
                 }
             }
             dr.Close();
-           
+
             return FileId;
 
         }
 
-        public bool ProcessData()
+        public void UpdateFileDetails(long FileId, int StatusCode)
         {
-            bool status = false;
-            try
-            {
-                SqlDataReader dr = SqlHelper.ExecuteReader(sqlConnectionString, CommandType.StoredProcedure, "usp_CASA_GenerateRating");
-                dr.Close();
-                status = true;
+            SqlParameter[] sqlParams = new SqlParameter[2];
+            sqlParams[0] = new SqlParameter("@FileId", FileId);
+            sqlParams[1] = new SqlParameter("@Status", StatusCode);
+            SqlHelper.ExecuteNonQuery(
+                     sqlConnectionString
+                    , CommandType.StoredProcedure, "usp_UpdateFileInfo"
+                    , sqlParams);
 
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-            return status;
         }
 
-        public DataTable ConvertExcelToDataTable(string FileName)
+        public DataTable ConvertExcelToDataTable(string FileName, string ConfigSheetName)
         {
             DataTable dtResult = null;
             int totalSheet = 0; //No of sheets on excel file  
@@ -125,12 +149,25 @@ namespace IncentiveCalcPOC.DAOLayer
                 string sheetName = string.Empty;
                 if (dt != null)
                 {
-                    var tempDataTable = (from dataRow in dt.AsEnumerable()
+                    DataTable tempDataTable;
+                    if ((ConfigSheetName != null) && (ConfigSheetName != ""))
+                    {
+
+                        tempDataTable = (from dataRow in dt.AsEnumerable()
+                                         where ((dataRow["TABLE_NAME"].ToString().Contains(ConfigSheetName)) &&
+                                          (!dataRow["TABLE_NAME"].ToString().Contains("FilterDatabase")))
+                                         select dataRow).CopyToDataTable();
+                    }
+                    else
+                    {
+                        tempDataTable = (from dataRow in dt.AsEnumerable()
                                          where !dataRow["TABLE_NAME"].ToString().Contains("FilterDatabase")
                                          select dataRow).CopyToDataTable();
+                    }
                     dt = tempDataTable;
                     totalSheet = dt.Rows.Count;
                     sheetName = dt.Rows[0]["TABLE_NAME"].ToString();
+
                 }
                 cmd.Connection = objConn;
                 cmd.CommandType = CommandType.Text;
@@ -141,6 +178,76 @@ namespace IncentiveCalcPOC.DAOLayer
                 objConn.Close();
                 return dtResult; //Returning Dattable  
             }
+        }
+
+        public bool ProcessDataFile(string fileType)
+        {
+            bool processStatus = false;
+            string spName = "usp_Process" + fileType + "Data";
+            SqlConnection conn = null;
+            try
+            {
+                using (conn = new SqlConnection(sqlConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(spName, conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        processStatus = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+
+            }
+            return processStatus;
+        }
+
+        public long GetDataFileId(string FileType)
+        {
+            long fileId = 0;
+            SqlConnection conn = null;
+            try
+            {
+                using (conn = new SqlConnection(sqlConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand("usp_GetDataFileId", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new SqlParameter("@FileType", FileType));
+                        conn.Open();
+
+                        object res = cmd.ExecuteScalar();
+                        fileId = Convert.ToInt64(res);
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+
+            }
+            return fileId;
         }
     }
 }
