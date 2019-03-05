@@ -40,7 +40,7 @@ namespace IncentiveCalcPOC.BAOLayer
             AddUserResultCode addUserResult = AddUserResultCode.Other;
 
             UserEntities user = DAO.GetUser(emailId);
-            if (user.EmailId != null)
+            if (user.Emp_No != null)
             {
                 addUserResult = AddUserResultCode.UserAlreadyExists;
 
@@ -48,7 +48,7 @@ namespace IncentiveCalcPOC.BAOLayer
             else
             { 
                 user = new UserEntities();
-                user.EmailId = emailId.Trim();
+                user.Emp_No = emailId.Trim();
                 user.Password = new HashHelper().CreateHashWithSalt(password);
                 user.FirstName = firstName.Trim();
                 user.LastName = lastName.Trim();

@@ -23,9 +23,9 @@ namespace IncentiveCalcPOC
                 {
                     ProfileImage.ImageUrl = "IncentiveInfo\\ProfileImages\\" + userInfo.ProfilePicPath;
                 }
-                UserNameLabel.Text = userInfo.FirstName + " " + userInfo.LastName;
+                UserNameLabel.Text = userInfo.FirstName ;
                 DesignationLabel.Text = userInfo.Designation;
-                
+
                 //Load user info
             }
         }

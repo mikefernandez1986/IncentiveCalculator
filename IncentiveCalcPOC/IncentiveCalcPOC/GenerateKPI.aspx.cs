@@ -14,7 +14,7 @@ namespace IncentiveCalcPOC
         KPIBAO KPI_BAO = new KPIBAO();
         protected void Page_Load(object sender, EventArgs e)
         {
-            tb_KPIDetails.InnerHtml = KPI_BAO.GetKPIDetails();
+            tb_KPIDetails.InnerHtml = KPI_BAO.getFileUploadDetails();
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace IncentiveCalcPOC
                         string path = string.Concat(Server.MapPath("~/IncentiveInfo/" + FileUpload1.FileName));
                         FileUpload1.SaveAs(path);
 
-                        bool UploadFile = BAO.UploadFile(FileUpload1.FileName, path, ddlFileType.SelectedValue);
+                      //  bool UploadFile = BAO.UploadFile(FileUpload1.FileName, path, ddlFileType.SelectedValue);
 
                         ///UploadDetails.Text = "File Uploaded Successfully";
 

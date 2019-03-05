@@ -28,7 +28,7 @@
                   <asp:TextBox ID="EmailTxtBox" runat="server" class="text" placeholder="Username" Text="User name"  onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'User name';}"></asp:TextBox>            
                   <a href="#" class=" icon user"></a> 
                   <span style="margin-left:10px">
-                    <asp:RequiredFieldValidator ID="EmailRequiredFieldValidator" runat="server" ControlToValidate="EmailTxtBox" ErrorMessage="Email ID Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="EmailRequiredFieldValidator" runat="server" ControlToValidate="EmailTxtBox" ErrorMessage="User Name Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </span>
               </li>
               <li>
@@ -36,7 +36,7 @@
                 <a href="#" class=" icon lock"></a>
               </li>
               <li>
-                  <asp:Label ID="InvalidLoginLbl" runat="server" ForeColor="#FF3300" Text="Email or Password entered is incorrect"></asp:Label>
+                  <asp:Label ID="InvalidLoginLbl" runat="server" ForeColor="#FF3300" Text="User Name or Password entered is incorrect"></asp:Label>
               </li>
             </ul>              
               <div class="submit">

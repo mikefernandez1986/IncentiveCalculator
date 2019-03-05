@@ -23,7 +23,7 @@ namespace IncentiveCalcPOC
             if (validUser != null)
             {
                 Session.Add("User", validUser);
-                Response.Redirect("UploadInfo.aspx"); 
+                Response.Redirect("Dashboard.aspx"); 
             }
             else
             {
