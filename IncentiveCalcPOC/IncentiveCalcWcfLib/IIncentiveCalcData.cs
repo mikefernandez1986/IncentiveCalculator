@@ -21,7 +21,7 @@ namespace IncentiveCalcWcfLib
         string CreateEmpPayout(string EmpNo);
 
         [OperationContract]
-        void UploadDataFile(string fileType, string fileName, bool processDataFlag);
+        void UploadDataFile(string fileType, string fileName, bool processDataFlag, bool createPayoutFlag);
 
         [OperationContract]
         void ProcessDataFile(string fileType);

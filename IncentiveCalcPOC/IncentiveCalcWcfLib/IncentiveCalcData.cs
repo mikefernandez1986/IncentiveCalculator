@@ -32,12 +32,12 @@ namespace IncentiveCalcWcfLib
         }
 
 
-        public void UploadDataFile(string fileType, string fileName, bool processDataFlag)
+        public void UploadDataFile(string fileType, string fileName, bool processDataFlag, bool createPayoutFlag)
         {
 
             if (processDataFlag)
             {
-                var uploadAndProcessTaskOutput = UploadAndProcessFilesAsync(fileType, fileName);
+                var uploadAndProcessTaskOutput = UploadAndProcessFilesAsync(fileType, fileName, createPayoutFlag);
             }
             else
             {
@@ -75,7 +75,7 @@ namespace IncentiveCalcWcfLib
         }
 
 
-        private async Task<bool> UploadAndProcessFilesAsync(string FileType, string fileName)
+        private async Task<bool> UploadAndProcessFilesAsync(string FileType, string fileName, bool createPayoutFlag)
         {
             string filePath = GetConfigFilePath(FileType);
             string sheetName = GetConfigSheetName(FileType);
@@ -87,6 +87,14 @@ namespace IncentiveCalcWcfLib
             {
                 var processFiles = Task.Run(() => uploadBAO.ProcessDataFiles(FileType.ToUpper()));
                 bool processResponse = await processFiles;
+
+                if (processResponse == true)
+                {
+                    if (createPayoutFlag == true)
+                    {
+                        CreateProductPayout(FileType);
+                    }
+                }
 
                 return Convert.ToBoolean(processResponse);
             }
