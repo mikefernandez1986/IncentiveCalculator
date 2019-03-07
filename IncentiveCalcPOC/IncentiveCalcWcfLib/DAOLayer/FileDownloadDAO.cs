@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Microsoft.ApplicationBlocks.Data;
 using OfficeOpenXml;
 
+
 namespace IncentiveCalcWcfLib.DAOLayer
 {
     public class FileDownloadDAO
@@ -48,8 +49,7 @@ namespace IncentiveCalcWcfLib.DAOLayer
 
             if (ds.Tables.Count > 0)
             {
-                string fileLocation = ConfigurationManager.AppSettings["Download_Location"];
-                CreateExcelFileFromDataTable(ds.Tables[0], payoutFileLocation + payoutFileName, ProductCode);
+                CreateExcelFileFromDataSet(ds, payoutFileLocation + payoutFileName, ProductCode);
                 return payoutFileName;
             }
             else
@@ -97,7 +97,37 @@ namespace IncentiveCalcWcfLib.DAOLayer
             return true;
         }
 
-        public long InsertFileDetails(string FileName, string FileType)
+        private bool CreateExcelFileFromDataSet(DataSet ds, string LongFileName, string SheetName)
+        {
+            string workSheetName = SheetName;
+            try
+            {
+                using (ExcelPackage package = new ExcelPackage())
+                {
+                    foreach (DataTable dt in ds.Tables)
+                    {
+                        if (ds.Tables.Count > 1)
+                        { 
+                            //DataTable returned by stored proc is expected to contain the worksheet name
+                            workSheetName = dt.Rows[1]["WORKSHEETNAME"].ToString();
+                            dt.Columns.Remove("WORKSHEETNAME");
+                        }
+                        ExcelWorksheet ws = package.Workbook.Worksheets.Add(workSheetName);
+                        int rowNumber = 1;
+                        ws.Cells["A" + rowNumber].LoadFromDataTable(dt, true);
+                        rowNumber += dt.Rows.Count + 2; // to create 2 empty rows
+                        package.SaveAs(new FileInfo(LongFileName));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return true;
+        }
+
+        public long InsertDownloadFileDetails(string FileName, string FileType)
         {
             long FileId = 0;
             SqlParameter[] sqlParams = new SqlParameter[2];

@@ -26,7 +26,7 @@ namespace IncentiveCalcWcfLib.DAOLayer
                 {
                     conn.Open();
                     // Delete old entries
-                    SqlCommand truncate = new SqlCommand("TRUNCATE TABLE " + TableName, conn);
+                    SqlCommand truncate = new SqlCommand("TRUNCATE TABLE [" + TableName + "]", conn);
                     truncate.ExecuteNonQuery();
                     conn.Close();
                     truncateStatus = true;
@@ -48,8 +48,10 @@ namespace IncentiveCalcWcfLib.DAOLayer
 
         public bool BulkInsert(DataTable dt, string tableName)
         {
+ 
             bool status = false;
             SqlBulkCopy bulkCopy = null;
+
             try
             {
                 bulkCopy = new SqlBulkCopy(sqlConnectionString, SqlBulkCopyOptions.TableLock)
@@ -128,7 +130,6 @@ namespace IncentiveCalcWcfLib.DAOLayer
                     DataTable tempDataTable;
                     if ((ConfigSheetName != null) && (ConfigSheetName != ""))
                     {
-
                         tempDataTable = (from dataRow in dt.AsEnumerable()
                                          where ((dataRow["TABLE_NAME"].ToString().Contains(ConfigSheetName)) &&
                                           (!dataRow["TABLE_NAME"].ToString().Contains("FilterDatabase")))
@@ -143,7 +144,6 @@ namespace IncentiveCalcWcfLib.DAOLayer
                     dt = tempDataTable;
                     totalSheet = dt.Rows.Count;
                     sheetName = dt.Rows[0]["TABLE_NAME"].ToString();
-
                 }
                 cmd.Connection = objConn;
                 cmd.CommandType = CommandType.Text;
@@ -176,7 +176,6 @@ namespace IncentiveCalcWcfLib.DAOLayer
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
