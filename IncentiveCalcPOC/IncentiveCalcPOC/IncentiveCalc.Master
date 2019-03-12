@@ -47,11 +47,12 @@
                         </a>
                         <div class="profile">
                             <div class="profile-image">
-                                <img src="assets/images/users/user.jpg" alt="John Doe"/>
+                                <asp:Image  ID="ProfileImage" runat="server" ImageUrl="assets/images/users/no-image.jpg"/>
+<%--                                <img src="assets/images/users/user.jpg" alt="John Doe"/>--%>
                             </div>
                             <div class="profile-data">
-                                <div class="profile-data-name">John Doe</div>
-                                <div class="profile-data-title">Sales Executive</div>
+                                <div class="profile-data-name"><asp:Label runat="server" ID="UserNameLabel"></asp:Label></div>
+                                <div class="profile-data-title"><asp:Label ID="DesignationLabel" runat="server"></asp:Label></div>
                             </div>
                             <div class="profile-controls">
                                 <a href="pages-profile.html" class="profile-control-left"><span class="fa fa-info"></span></a>
@@ -59,16 +60,18 @@
                             </div>
                         </div>                                                                        
                     </li>               
-                   
-                    <li class="active"><a href="index.html"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a> </li>                    
+                    <li class="active"><a href="Dashboard.aspx"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a> </li>                    
                     <li><a href="#"><span class="fa fa-user"></span> <span class="xn-text">Employee List</span></a></li>
                     
                     <li class="xn-openable"><a href="#"><span class="fa fa-user"></span> <span class="xn-text">Admin</span></a>
-					<ul>                                    
-                                    <li><a href="#"><span class="fa fa-desktop"></span> App Login</a></li>
-                                    <li><a href="#"><span class="fa fa-desktop"></span> Website</a></li>
-                                </ul>
-								</li>   
+					    <ul>              
+                            <li><a href="UploadInfo.aspx"><span class="fa fa-upload"></span> Upload Files</a></li>
+                            <li><a href="DownloadData.aspx"><span class="fa fa-download"></span> Download Files</a></li>
+                            <li><a href="AddRole.aspx"><span class="fa fa-book"></span> Role Maintenance</a></li>
+                           <%-- <li><a href="#"><span class="fa fa-desktop"></span> App Login</a></li>
+                            <li><a href="#"><span class="fa fa-desktop"></span> Website</a></li>--%>
+                        </ul>
+					</li>   
 
 					<li><a href="#"><span class="fa fa-user"></span> <span class="xn-text">Super Admin</span></a></li>   					
                     
@@ -85,14 +88,19 @@
                 <ul class="breadcrumb">
                     <li><a href="#">Home</a></li>                    
                     <li class="active">Dashboard</li>
-					<li style="float:right;"><a href="login.aspx"><b><span class="fa fa-sign-out"></span> LOGOUT</b><a/></li>
+<%--					<li style="float:right;"><a href="login.aspx" ><b><span class="fa fa-sign-out"></span> LOGOUT</b><a/></li>--%>
+                    <li style="float:right;">
+                        <span class="fa fa-sign-out"></span>
+                    <asp:LinkButton id="LinkButton1" 
+           Text="Logout" 
+           OnClick="OnLogout_Click" 
+           runat="server"/></li>
                 </ul>
                 <!-- END BREADCRUMB -->                       
                 
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>                     
-                    
                 </div>
                 <!-- END PAGE CONTENT WRAPPER -->                                
             </div>            

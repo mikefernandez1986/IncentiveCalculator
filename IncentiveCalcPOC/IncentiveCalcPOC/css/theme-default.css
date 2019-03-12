@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,500,600,700&subset=latin,latin-ext);
 @import "jquery/jquery-ui.min.css";
@@ -3317,21 +3317,21 @@ td.dataTables_empty {
 /* WIDGETS */
 .widget {
   width: 100%;
-  float: left;
-  margin: 0px;
-  list-style: none;
-  text-decoration: none;
-  -moz-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
-  color: #FFF;
-  -moz-border-radius: 0px;
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
-  padding: 15px 10px;
-  margin-bottom: 20px;
-  min-height: 120px;
-  position: relative;
+    float: left;
+    margin: 0px;
+    list-style: none;
+    text-decoration: none;
+    -moz-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
+    color: #FFF;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    padding: 15px 10px;
+    margin-bottom: 20px;
+    min-height:100px;
+    position: relative;
 }
 .widget.widget-padding-sm,
 .widget.widget-item-icon {
@@ -3423,10 +3423,10 @@ background: #0093ae !important;
   color: #EEE;
 }
 .widget .widget-int {
-  font-size: 32px;
+  font-size:25px;
   line-height: 40px;
-  font-weight: bold;
-  font-family: arial;
+  font-weight: normal;
+  font-family: arial; border-radius:6px; background:#fff; color:#000;  width: 76px;
 }
 .widget .widget-big-int {
   font-size: 42px;
@@ -3450,7 +3450,7 @@ background: #0093ae !important;
   text-align: center;
 }
 .widget.widget-item-icon .widget-item-left {
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 0px solid rgba(0, 0, 0, 0.1);
   margin-right: 10px;
   padding-right: 10px;
 }
@@ -3596,10 +3596,10 @@ background: #0093ae !important;
   margin-right: 2px;
 }
 .widget.widget-default {
-  color: #1b1e24;
+  color: #fff;
 }
 .widget.widget-default .widget-subtitle {
-  color: #1b1e24;
+  color: #fff;
 }
 .widget.widget-default .widget-controls a {
   color: #1b1e24;
@@ -7326,4 +7326,55 @@ li.ext_zip {
 .x-navigation-minimized .xn-logo{
 display:none;
 }
+/*added by Mike*/ 
+	canvas {
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
+
+    .dottedborder{
+        border-bottom: dotted 1px black;
+    }
+    .leftFloat{
+        float:left; 
+        text-align:center;
+        margin-top:5px;
+        margin-left:10px;
+    }
+    .rightFloat{
+        float:right; 
+        text-align:center;
+        margin-top:5px;
+        margin-left:10px;
+    }
+    .innerSpan{
+        width:25px;
+        height: 15px; 
+        display: inline-block;
+    }
+    .innerlabel{
+        margin-left: 5px; 
+        text-align:center;
+        font-size:15px;
+    }
+    table { border-collapse: collapse; empty-cells: show; }
+
+    td { position: relative; }
+
+    tr.strikeout td:before {
+      content: " ";
+      position: absolute;
+      top: 40%;
+      left: 0;
+      border-bottom: 2px solid #111;
+      width: 90%;
+    }
+
+    tr.strikeout td:after {
+      content: "\00B7";
+      font-size: 1px;
+    }
+
+
 

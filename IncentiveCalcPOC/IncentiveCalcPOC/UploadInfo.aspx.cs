@@ -6,6 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using IncentiveCalcPOC.BAOLayer;
 using System.Threading.Tasks;
+using IncentiveCalcPOC.Entities;
+using IncentiveCalcPOC.IncentiveCalcService;
+using System.Windows;
+using System.Configuration;
 
 namespace IncentiveCalcPOC
 {
@@ -13,51 +17,137 @@ namespace IncentiveCalcPOC
     {
         FileUploaderBAO BAO = new FileUploaderBAO();
         KPIBAO KPI_BAO = new KPIBAO();
+        IncentiveCalcDataClient client = new IncentiveCalcDataClient();
         protected void Page_Load(object sender, EventArgs e)
         {
-            tb_KPIDetails.InnerHtml = KPI_BAO.GetKPIDetails();
+            if (IsPostBack)
+                return;
+
+            try
+            {
+                List<FileDetails> ddlFileDetails = new List<FileDetails>();
+                ddlFileDetails = BAO.getFileTypes();
+                foreach (FileDetails f in ddlFileDetails)
+                {
+                    ListItem item = new ListItem(f.FileTypeDesc,f.FileType.ToString());
+                    //item.Selected = p.Selected;
+                    ddlFileType.Items.Add(item);
+                }
+                tb_KPIDetails.InnerHtml = KPI_BAO.getFileUploadDetails();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            
            // ScriptManager1.RegisterAsyncPostBackControl(btn_FileUpload);
         }
 
-        protected void btnUpload_Click(object sender, EventArgs e)
+        protected void btn_Refresh_Click(object sender, EventArgs e)
         {
-            if (FileUpload1.HasFile)
+            try
             {
-                if (System.IO.Path.GetExtension(FileUpload1.PostedFile.FileName) == ".xls")
-                {
-                    try
-                    {
-
-                        string path = string.Concat(Server.MapPath("~/IncentiveInfo/" + FileUpload1.FileName));
-                        FileUpload1.SaveAs(path);
-
-                        bool UploadFile = BAO.UploadFile(FileUpload1.FileName, path, ddlFileType.SelectedValue);
-
-                        var output = ProcessFilesAsync();
-
-                        UploadDetails.Text = "File Uploaded Successfully!! Processing the file in background";
-
-                    }
-
-                    catch (Exception ex)
-                    {
-                         UploadDetails.Text = ex.Message;
-                    }
-                }
-                else
-                {
-                     UploadDetails.Text = "Invalid file format. Please upload .xls files.";
-                }
+                tb_KPIDetails.InnerHtml = KPI_BAO.getFileUploadDetails();
+            }
+            catch(Exception ex)
+            {
 
             }
         }
 
-        public async Task<bool> ProcessFilesAsync()
+        protected void btnUpload_Click(object sender, EventArgs e)
         {
-            var processFiles =  Task.Run(() => BAO.processFiles());
-            var updateInfo = Task.Run(() => KPI_BAO.GetKPIDetails());
-            tb_KPIDetails.InnerHtml = Convert.ToString(await updateInfo);
-            var response = await processFiles;  
+            btn_FileUpload.Enabled = false;
+            try
+            {
+                if (FileUpload1.HasFile)
+                {
+                    if (System.IO.Path.GetExtension(FileUpload1.PostedFile.FileName) == ".xls" || System.IO.Path.GetExtension(FileUpload1.PostedFile.FileName) == ".xlsx")
+                    {
+                        try
+                        {
+
+                            string path = string.Concat(Server.MapPath("~/IncentiveInfo/" + FileUpload1.FileName));
+                            FileUpload1.SaveAs(path);
+                            //var upload = await UploadFilesAsync(ddlFileType.SelectedItem.Value, FileUpload1.FileName).ConfigureAwait(false);
+                            client = new IncentiveCalcDataClient();
+                            client.UploadDataFile(ddlFileType.SelectedItem.Value, FileUpload1.FileName, true);
+
+                           // var a =  await ProcessFilesAsync(ddlFileType.SelectedItem.Value).ConfigureAwait(false); 
+                            //Task.WaitAll(Task.Run(async () => await ProcessFilesAsync(ddlFileType.SelectedItem.Value)));
+                            // UploadDetails.Text = "File Uploaded Successfully!! Processing the file in background";
+
+                        }
+
+                        catch (Exception ex)
+                        {
+                            // UploadDetails.Text = ex.Message;
+                        }
+                    }
+                    else
+                    {
+                        // UploadDetails.Text = "Invalid file format. Please upload .xls files.";
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                btn_FileUpload.Enabled = true;
+            }
+            
+        }
+
+
+        private async Task<bool> UploadFilesAsync(string fileType, string fileName)
+        {
+            string filePath = GetConfigFilePath(fileType);
+            string sheetName = GetConfigSheetName(fileType);
+
+            var uploadFiles = Task.Run(() => BAO.UploadFile(fileName, filePath, sheetName, fileType.ToUpper()));
+            var response = await uploadFiles;
+            return Convert.ToBoolean(response);
+        }
+
+
+        private string GetConfigFilePath(string FileType)
+        {
+            string keyStr = FileType + "_FileLocation";
+            string filePath = ConfigurationManager.AppSettings[keyStr];
+            return filePath;
+        }
+
+        private string GetConfigSheetName(string FileType)
+        {
+            string keyStr = FileType + "_SheetName";
+            string sheetName = ConfigurationManager.AppSettings[keyStr];
+            return sheetName;
+        }
+
+        public async Task<bool> ProcessFilesAsync(string FileType)
+        {
+            bool response = false;
+            try
+            {
+                client = new IncentiveCalcDataClient();
+                var processFiles = Task.Run(() => client.ProcessDataFile(FileType));
+                var updateInfo = Task.Run(() => KPI_BAO.getFileUploadDetails());
+                await processFiles;
+                tb_KPIDetails.InnerHtml = Convert.ToString(await updateInfo);
+
+                response = true;
+            }
+            catch (Exception ex)
+            {
+                response = false;
+            }
+
             return Convert.ToBoolean(response);
         }
     }

@@ -9,6 +9,7 @@ namespace IncentiveCalcPOC.Entities
     {
         public int RoleId { get; set; }
         public string RoleName { get; set; }
+        public string RoleDesc { get; set; }
         public int AccessLevelId { get; set; }
         public string AccessLevelName { get; set; }
     }

@@ -14,23 +14,26 @@ namespace IncentiveCalcPOC.DAOLayer
     public class KPIDetailsDAO
     {
         private static readonly string sqlConnectionString = ConfigurationManager.ConnectionStrings["SqlConnString"].ConnectionString;
-        public List<KPIEntities> GetKPIDetails()
+        public List<UploadDetails> getFileUploadInfo()
         {
-            List<KPIEntities> kpiInfo = new List<KPIEntities>();
+            List<UploadDetails> uploadInfo = new List<UploadDetails>();
             try
             {
-                SqlDataReader dr = SqlHelper.ExecuteReader(sqlConnectionString,CommandType.StoredProcedure, "usp_GetKPIDetails");
+                SqlDataReader dr = SqlHelper.ExecuteReader(sqlConnectionString,CommandType.StoredProcedure, "usp_GetUplaodFileDetails");
                 if (dr.HasRows)
                 {
                     while (dr.Read())
                     {
-                        KPIEntities entities = new KPIEntities();
-                        entities.CASAID = Convert.ToInt32(dr["CASAID"]);
-                        entities.EmployeeCode = Convert.ToString(dr["EmployeeCode"]);
-                        entities.EmployeeName = Convert.ToString(dr["EmployeeName"]);
-                        entities.PerformanceScore = Convert.ToInt32(dr["PerformanceScore"]);
-                        entities.KPIRating = Convert.ToInt32(dr["KPIRating"]);
-                        kpiInfo.Add(entities);
+                        UploadDetails entities = new UploadDetails();
+                        entities.FileId = Convert.ToInt64(dr["FileId"]);
+                        entities.FileName = Convert.ToString(dr["FileName"]);
+                        entities.FileType = Convert.ToString(dr["FileType"]);
+                        entities.DateCreated = Convert.ToString(dr["DateCreated"]);
+                        entities.IsProcessed = Convert.ToBoolean(dr["IsProcessed"]);
+                        entities.ProcessedTime = Convert.ToString(dr["ProcessedTime"]);
+                       // entities.Status = Convert.ToInt32(dr["Status"]);
+                        entities.StatusDesc = Convert.ToString(dr["StatusDesc"]);
+                        uploadInfo.Add(entities);
                     }
                 }
                 dr.Close();
@@ -40,7 +43,7 @@ namespace IncentiveCalcPOC.DAOLayer
             {
                 throw ex;
             }
-            return kpiInfo;
+            return uploadInfo;
         }
     }
 }

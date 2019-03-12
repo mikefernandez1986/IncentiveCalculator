@@ -1,0 +1,8 @@
+E:\IncCalcRepo23Feb\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcWcfLib\bin\Release\IncentiveCalcWcfLib.dll
+E:\IncCalcRepo23Feb\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcWcfLib\bin\Release\IncentiveCalcWcfLib.pdb
+E:\IncCalcRepo23Feb\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcWcfLib\bin\Release\EPPlus.dll
+E:\IncCalcRepo23Feb\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcWcfLib\bin\Release\Microsoft.ApplicationBlocks.Data.dll
+E:\IncCalcRepo23Feb\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcWcfLib\bin\Release\EPPlus.xml
+E:\IncCalcRepo23Feb\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcWcfLib\obj\Release\IncentiveCalcWcfLib.csprojResolveAssemblyReference.cache
+E:\IncCalcRepo23Feb\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcWcfLib\obj\Release\IncentiveCalcWcfLib.dll
+E:\IncCalcRepo23Feb\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcWcfLib\obj\Release\IncentiveCalcWcfLib.pdb
