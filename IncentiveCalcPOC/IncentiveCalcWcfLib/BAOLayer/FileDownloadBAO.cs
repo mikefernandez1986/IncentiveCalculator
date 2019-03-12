@@ -42,7 +42,7 @@ namespace IncentiveCalcWcfLib.BAOLayer
                 {
                     uploadDAO.UpdateFileDetails(fileId, (int)BAOLayer.FileUploaderBAO.FileStatusCodes.InProcess);
                     payoutFilename = DAO.CreateProductPayoutFile(ProductCode);
-                    DAO.InsertFileDetails(payoutFilename, ProductCode);
+                    DAO.InsertDownloadFileDetails(payoutFilename, ProductCode);
                     uploadDAO.UpdateFileDetails(fileId, (int)BAOLayer.FileUploaderBAO.FileStatusCodes.CreatePayoutComplete);
                 }
             }
@@ -61,7 +61,7 @@ namespace IncentiveCalcWcfLib.BAOLayer
             try
             {
                 payoutFilename = DAO.CreateCumulativePayoutFile();
-                DAO.InsertFileDetails(payoutFilename, "ALL");
+                DAO.InsertDownloadFileDetails(payoutFilename, "ALL");
             }
             catch (Exception ex)
             {
