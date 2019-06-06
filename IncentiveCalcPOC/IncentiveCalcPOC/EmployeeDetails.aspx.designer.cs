@@ -10,123 +10,105 @@
 namespace IncentiveCalcPOC {
     
     
-    public partial class Dashboard {
+    public partial class EmployeeDetails {
         
         /// <summary>
-        /// btn_downloadEmpInfo control.
+        /// txt_EmpNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_downloadEmpInfo;
+        protected global::System.Web.UI.WebControls.TextBox txt_EmpNo;
         
         /// <summary>
-        /// dvTotalPoints control.
+        /// txt_EmpName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvTotalPoints;
+        protected global::System.Web.UI.WebControls.TextBox txt_EmpName;
         
         /// <summary>
-        /// dvAvgKPI control.
+        /// txt_DOJ control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvAvgKPI;
+        protected global::System.Web.UI.WebControls.TextBox txt_DOJ;
         
         /// <summary>
-        /// dvPayout control.
+        /// txt_Role control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvPayout;
+        protected global::System.Web.UI.WebControls.TextBox txt_Role;
         
         /// <summary>
-        /// dvRetention control.
+        /// txt_dept control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvRetention;
+        protected global::System.Web.UI.WebControls.TextBox txt_dept;
         
         /// <summary>
-        /// achivedData_value control.
+        /// txt_Div control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden achivedData_value;
+        protected global::System.Web.UI.WebControls.TextBox txt_Div;
         
         /// <summary>
-        /// achivedData_color control.
+        /// txt_Branch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden achivedData_color;
+        protected global::System.Web.UI.WebControls.TextBox txt_Branch;
         
         /// <summary>
-        /// achivedData_labels control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden achivedData_labels;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// achivedData_KPI control.
+        /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden achivedData_KPI;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// targetData_value control.
+        /// ImgFu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden targetData_value;
+        protected global::System.Web.UI.WebControls.FileUpload ImgFu;
         
         /// <summary>
-        /// targetData_color control.
+        /// btn_ImgUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden targetData_color;
-        
-        /// <summary>
-        /// targetData_labels control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden targetData_labels;
-        
-        /// <summary>
-        /// targetData_Plan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden targetData_Plan;
+        protected global::System.Web.UI.WebControls.Button btn_ImgUpload;
     }
 }

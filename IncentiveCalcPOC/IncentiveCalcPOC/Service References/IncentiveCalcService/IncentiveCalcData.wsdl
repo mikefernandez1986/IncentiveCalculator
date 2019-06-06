@@ -36,6 +36,12 @@
   <wsdl:message name="IIncentiveCalcData_ProcessDataFile_OutputMessage">
     <wsdl:part name="parameters" element="tns:ProcessDataFileResponse" />
   </wsdl:message>
+  <wsdl:message name="IIncentiveCalcData_AccumulateRetainedLoyaltyAmounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:AccumulateRetainedLoyaltyAmounts" />
+  </wsdl:message>
+  <wsdl:message name="IIncentiveCalcData_AccumulateRetainedLoyaltyAmounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AccumulateRetainedLoyaltyAmountsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IIncentiveCalcData">
     <wsdl:operation name="CreateCumulativePayout">
       <wsdl:input wsaw:Action="http://tempuri.org/IIncentiveCalcData/CreateCumulativePayout" message="tns:IIncentiveCalcData_CreateCumulativePayout_InputMessage" />
@@ -56,6 +62,10 @@
     <wsdl:operation name="ProcessDataFile">
       <wsdl:input wsaw:Action="http://tempuri.org/IIncentiveCalcData/ProcessDataFile" message="tns:IIncentiveCalcData_ProcessDataFile_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IIncentiveCalcData/ProcessDataFileResponse" message="tns:IIncentiveCalcData_ProcessDataFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AccumulateRetainedLoyaltyAmounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIncentiveCalcData/AccumulateRetainedLoyaltyAmounts" message="tns:IIncentiveCalcData_AccumulateRetainedLoyaltyAmounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIncentiveCalcData/AccumulateRetainedLoyaltyAmountsResponse" message="tns:IIncentiveCalcData_AccumulateRetainedLoyaltyAmounts_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IIncentiveCalcData" type="tns:IIncentiveCalcData">
@@ -98,6 +108,15 @@
     </wsdl:operation>
     <wsdl:operation name="ProcessDataFile">
       <soap:operation soapAction="http://tempuri.org/IIncentiveCalcData/ProcessDataFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccumulateRetainedLoyaltyAmounts">
+      <soap:operation soapAction="http://tempuri.org/IIncentiveCalcData/AccumulateRetainedLoyaltyAmounts" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

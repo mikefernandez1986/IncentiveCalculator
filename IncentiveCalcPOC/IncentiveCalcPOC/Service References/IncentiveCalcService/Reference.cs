@@ -34,16 +34,22 @@ namespace IncentiveCalcPOC.IncentiveCalcService {
         System.Threading.Tasks.Task<string> CreateEmpPayoutAsync(string EmpNo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIncentiveCalcData/UploadDataFile", ReplyAction="http://tempuri.org/IIncentiveCalcData/UploadDataFileResponse")]
-        void UploadDataFile(string fileType, string fileName, bool processDataFlag);
+        void UploadDataFile(string fileType, string fileName, bool processDataFlag, bool createPayoutFlag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIncentiveCalcData/UploadDataFile", ReplyAction="http://tempuri.org/IIncentiveCalcData/UploadDataFileResponse")]
-        System.Threading.Tasks.Task UploadDataFileAsync(string fileType, string fileName, bool processDataFlag);
+        System.Threading.Tasks.Task UploadDataFileAsync(string fileType, string fileName, bool processDataFlag, bool createPayoutFlag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIncentiveCalcData/ProcessDataFile", ReplyAction="http://tempuri.org/IIncentiveCalcData/ProcessDataFileResponse")]
         void ProcessDataFile(string fileType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIncentiveCalcData/ProcessDataFile", ReplyAction="http://tempuri.org/IIncentiveCalcData/ProcessDataFileResponse")]
         System.Threading.Tasks.Task ProcessDataFileAsync(string fileType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIncentiveCalcData/AccumulateRetainedLoyaltyAmounts", ReplyAction="http://tempuri.org/IIncentiveCalcData/AccumulateRetainedLoyaltyAmountsResponse")]
+        void AccumulateRetainedLoyaltyAmounts(bool ReprocessFlag);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIncentiveCalcData/AccumulateRetainedLoyaltyAmounts", ReplyAction="http://tempuri.org/IIncentiveCalcData/AccumulateRetainedLoyaltyAmountsResponse")]
+        System.Threading.Tasks.Task AccumulateRetainedLoyaltyAmountsAsync(bool ReprocessFlag);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,12 +103,12 @@ namespace IncentiveCalcPOC.IncentiveCalcService {
             return base.Channel.CreateEmpPayoutAsync(EmpNo);
         }
         
-        public void UploadDataFile(string fileType, string fileName, bool processDataFlag) {
-            base.Channel.UploadDataFile(fileType, fileName, processDataFlag);
+        public void UploadDataFile(string fileType, string fileName, bool processDataFlag, bool createPayoutFlag) {
+            base.Channel.UploadDataFile(fileType, fileName, processDataFlag, createPayoutFlag);
         }
         
-        public System.Threading.Tasks.Task UploadDataFileAsync(string fileType, string fileName, bool processDataFlag) {
-            return base.Channel.UploadDataFileAsync(fileType, fileName, processDataFlag);
+        public System.Threading.Tasks.Task UploadDataFileAsync(string fileType, string fileName, bool processDataFlag, bool createPayoutFlag) {
+            return base.Channel.UploadDataFileAsync(fileType, fileName, processDataFlag, createPayoutFlag);
         }
         
         public void ProcessDataFile(string fileType) {
@@ -111,6 +117,14 @@ namespace IncentiveCalcPOC.IncentiveCalcService {
         
         public System.Threading.Tasks.Task ProcessDataFileAsync(string fileType) {
             return base.Channel.ProcessDataFileAsync(fileType);
+        }
+        
+        public void AccumulateRetainedLoyaltyAmounts(bool ReprocessFlag) {
+            base.Channel.AccumulateRetainedLoyaltyAmounts(ReprocessFlag);
+        }
+        
+        public System.Threading.Tasks.Task AccumulateRetainedLoyaltyAmountsAsync(bool ReprocessFlag) {
+            return base.Channel.AccumulateRetainedLoyaltyAmountsAsync(ReprocessFlag);
         }
     }
 }

@@ -72,7 +72,7 @@ namespace IncentiveCalcPOC
                             FileUpload1.SaveAs(path);
                             //var upload = await UploadFilesAsync(ddlFileType.SelectedItem.Value, FileUpload1.FileName).ConfigureAwait(false);
                             client = new IncentiveCalcDataClient();
-                            client.UploadDataFile(ddlFileType.SelectedItem.Value, FileUpload1.FileName, true);
+                            client.UploadDataFile(ddlFileType.SelectedItem.Value, FileUpload1.FileName, true, true);
 
                            // var a =  await ProcessFilesAsync(ddlFileType.SelectedItem.Value).ConfigureAwait(false); 
                             //Task.WaitAll(Task.Run(async () => await ProcessFilesAsync(ddlFileType.SelectedItem.Value)));

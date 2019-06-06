@@ -55,25 +55,25 @@
                                 <div class="profile-data-title"><asp:Label ID="DesignationLabel" runat="server"></asp:Label></div>
                             </div>
                             <div class="profile-controls">
-                                <a href="pages-profile.html" class="profile-control-left"><span class="fa fa-info"></span></a>
-                                <a href="pages-messages.html" class="profile-control-right"><span class="fa fa-envelope"></span></a>
+                                <%--<a href="EmployeeDetails.aspx" class="profile-control-left"><span class="fa fa-info"></span></a>--%>
+                                <%--<a href="pages-messages.html" class="profile-control-right"><span class="fa fa-envelope"></span></a>--%>
                             </div>
                         </div>                                                                        
                     </li>               
                     <li class="active"><a href="Dashboard.aspx"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a> </li>                    
-                    <li><a href="#"><span class="fa fa-user"></span> <span class="xn-text">Employee List</span></a></li>
+                    <%--<li><a href="#"><span class="fa fa-user"></span> <span class="xn-text">Employee List</span></a></li>--%>
                     
                     <li class="xn-openable"><a href="#"><span class="fa fa-user"></span> <span class="xn-text">Admin</span></a>
 					    <ul>              
                             <li><a href="UploadInfo.aspx"><span class="fa fa-upload"></span> Upload Files</a></li>
                             <li><a href="DownloadData.aspx"><span class="fa fa-download"></span> Download Files</a></li>
-                            <li><a href="AddRole.aspx"><span class="fa fa-book"></span> Role Maintenance</a></li>
+                            <%--<li><a href="AddRole.aspx"><span class="fa fa-book"></span> Role Maintenance</a></li>--%>
                            <%-- <li><a href="#"><span class="fa fa-desktop"></span> App Login</a></li>
                             <li><a href="#"><span class="fa fa-desktop"></span> Website</a></li>--%>
                         </ul>
 					</li>   
 
-					<li><a href="#"><span class="fa fa-user"></span> <span class="xn-text">Super Admin</span></a></li>   					
+					<li><a href="EmployeeDetails.aspx"><span class="fa fa-info"></span> <span class="xn-text">Employee Info</span></a></li>   					
                     
                     
                 </ul>
