@@ -18,6 +18,10 @@ namespace IncentiveCalcPOC.Entities
         public bool Enabled { get; set; }
         public string ProfilePicPath { get; set; }
         public DateTime LastUpdated { get; set; }
+        public DateTime JoinDate { get; set; }
+        public string Dept { get; set; }
+        public string Division { get; set; }
+        public string Branchname { get; set; }
 
         public RoleEntities Role { get; set; }
 

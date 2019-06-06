@@ -31,19 +31,6 @@ namespace IncentiveCalcPOC.DAOLayer
                         int counter = 0;
                         while (dr.Read())
                         {
-                            IncentiveSourceEntities target = new IncentiveSourceEntities();
-                            IncentiveSourceEntities achived = new IncentiveSourceEntities();
-                            target.label = achived.label = Convert.ToString(dr["ProductName"]);
-                            target.value = Convert.ToString(dr["TargetSet"]);
-                            achived.value = Convert.ToString(dr["Achieved"]);
-                            target.color = achived.color = arrColor[counter];
-                            Emp_Details.Emp_TargetInfo.Add(target);
-                            Emp_Details.EMP_AchievedInfo.Add(achived);
-                            counter++;
-                        }
-                        dr.NextResult();
-                        while (dr.Read())
-                        {
                             Emp_Details.Emp_No = Convert.ToString(dr["Emp_No"]);
                             Emp_Details.Emp_Name = Convert.ToString(dr["EMP_Name"]);
                             Emp_Details.Emp_Plan = Convert.ToString(dr["Incentive_Bonus"]);
@@ -53,6 +40,19 @@ namespace IncentiveCalcPOC.DAOLayer
                             Emp_Details.Emp_ProposedPayoutAmount = Convert.ToDouble(dr["PropsedPayAmount"]);
                             Emp_Details.Emp_ActualPayoutAmount = Convert.ToDouble(dr["ActualPayAmount"]);
                             Emp_Details.Emp_RetainedPayoutAmount = Convert.ToDouble(dr["RetainedLoyalityAmt"]);
+                        }
+                        dr.NextResult();
+                        while (dr.Read())
+                        {
+                            IncentiveSourceEntities target = new IncentiveSourceEntities();
+                            IncentiveSourceEntities achived = new IncentiveSourceEntities();
+                            target.label = achived.label = Convert.ToString(dr["ProductName"]);
+                            target.value = Convert.ToString(dr["TargetSet"]);
+                            achived.value = Convert.ToString(dr["Achieved"]);
+                            target.color = achived.color = arrColor[counter];
+                            Emp_Details.Emp_TargetInfo.Add(target);
+                            Emp_Details.EMP_AchievedInfo.Add(achived);
+                            counter++;
                         }
                     }
                 }
@@ -64,6 +64,22 @@ namespace IncentiveCalcPOC.DAOLayer
                 throw ex;
             }
             return Emp_Details;
+        }
+
+        public DataSet GetEmpInfoForDownload(string Emp_Id)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] sqlParams = new SqlParameter[1];
+                sqlParams[0] = new SqlParameter("@Emp_No", Emp_Id);
+                ds = SqlHelper.ExecuteDataset(sqlConnectionString, CommandType.StoredProcedure, "usp_GetEmpInfo_Dashboard", sqlParams);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return ds;
         }
     }
 }

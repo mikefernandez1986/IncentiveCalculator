@@ -59,7 +59,7 @@ namespace IncentiveCalcPOC.DAOLayer
                                 entitiesAll.KPIRating = Convert.ToDouble(dr["KPIRating"]);
                                 entitiesAll.PropsedPayAmount = Convert.ToDouble(dr["PropsedPayAmount"]);
                                 entitiesAll.ActualPayAmount = Convert.ToDouble(dr["ActualPayAmount"]);
-                                entitiesAll.RetainedLoyalityAmt = Convert.ToDouble(dr["RetainedLoyalityAmt"]);
+                                entitiesAll.RetainedLoyalityAmt = Convert.ToDouble(dr["RetainedLoyaltyAmt"]);
 
                                 downloadInfo.Add(entitiesAll);
                             }

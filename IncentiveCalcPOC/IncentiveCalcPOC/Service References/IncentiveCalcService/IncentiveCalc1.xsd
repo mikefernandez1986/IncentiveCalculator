@@ -46,6 +46,7 @@
         <xs:element minOccurs="0" name="fileType" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="processDataFlag" type="xs:boolean" />
+        <xs:element minOccurs="0" name="createPayoutFlag" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -62,6 +63,18 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="ProcessDataFileResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccumulateRetainedLoyaltyAmounts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReprocessFlag" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccumulateRetainedLoyaltyAmountsResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

@@ -236,6 +236,13 @@
 	</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="row">
+        <div class="col-md-12">
+            <div style="float:right; margin-bottom:10px;">
+                <asp:Button runat="server" ID="btn_downloadEmpInfo" CssClass="btn btn-success" Text="Download Your Incentive Details " OnClick="btn_downloadEmpInfo_Click" />
+            </div>
+        </div>
+    </div>
       <!-- START WIDGETS -->                    
                     <div class="row">
                         <div class="col-md-3">                            

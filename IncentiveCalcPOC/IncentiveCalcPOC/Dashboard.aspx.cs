@@ -11,6 +11,8 @@ using System.Data.SqlClient;
 using System.Configuration;
 using IncentiveCalcPOC.BAOLayer;
 using IncentiveCalcPOC.Entities;
+using System.IO;
+using ClosedXML.Excel;
 
 namespace IncentiveCalcPOC
 {
@@ -38,6 +40,7 @@ namespace IncentiveCalcPOC
                 targetData_labels.Value = string.Join(", ", from item in Emp_Details.Emp_TargetInfo select item.label);
 
                 targetData_Plan.Value = Convert.ToString(Emp_Details.Emp_Plan);
+                
             }
         }
 
@@ -55,6 +58,68 @@ namespace IncentiveCalcPOC
             {
                 throw ex;
             }
+        }
+
+        protected void btn_downloadEmpInfo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DownloadExcel();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DownloadExcel()
+        {
+            UserEntities userInfo = (UserEntities)Session["USER"];
+            var sheetNames = new List<string>() { "KPI Summary", "KPI Details" };
+            string fileName = "EmployeeInfo";
+
+            DataSet ds = BAO.GetEmpInfoForDownload(userInfo.Emp_No);
+
+            XLWorkbook wbook = new XLWorkbook();
+
+            for (int k = 0; k < ds.Tables.Count; k++)
+            {
+                DataTable dt = ds.Tables[k];
+                IXLWorksheet Sheet = wbook.Worksheets.Add(sheetNames[k]);
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    Sheet.Cell(1, (i + 1)).Value = dt.Columns[i].ColumnName;
+                }
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dt.Columns.Count; j++)
+                    {
+                        Sheet.Cell((i + 2), (j + 1)).Value = dt.Rows[i][j].ToString();
+                    }
+                }
+            }
+
+            Stream spreadsheetStream = new MemoryStream();
+            wbook.SaveAs(spreadsheetStream);
+            spreadsheetStream.Position = 0;
+
+            string myName = Server.UrlEncode(fileName + "_" + userInfo.Emp_No + "_" + DateTime.Now.ToShortDateString() + ".xlsx");
+            MemoryStream stream = new MemoryStream();
+            spreadsheetStream.CopyTo(stream);
+
+            Response.Clear();
+            Response.Buffer = true;
+            Response.AddHeader("content-disposition", "attachment; filename=" + myName);
+            Response.ContentType = "application/vnd.ms-excel";
+            Response.BinaryWrite(stream.ToArray());
+            Response.End();
+
+            spreadsheetStream.Flush();
+            spreadsheetStream.Close();
+            stream.Flush();
+            stream.Close();
+            //FileStreamResult(spreadsheetStream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") { FileDownloadName = fileName };
+
         }
 
         [WebMethod]
