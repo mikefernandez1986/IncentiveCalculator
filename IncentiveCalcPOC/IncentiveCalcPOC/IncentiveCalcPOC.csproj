@@ -97,6 +97,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PresentationCore" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
@@ -887,6 +888,7 @@
     </Compile>
     <Compile Include="Helpers\DataTableEntensions.cs" />
     <Compile Include="Helpers\DBHelper.cs" />
+    <Compile Include="Helpers\DirectoryIdentity.cs" />
     <Compile Include="Helpers\HashHelper.cs" />
     <Compile Include="Helpers\LINQtoDataTable.cs" />
     <Compile Include="Helpers\ListExtensions.cs" />

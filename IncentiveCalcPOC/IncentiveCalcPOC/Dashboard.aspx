@@ -234,6 +234,10 @@
 		
 
 	</script>
+
+    
+
+    <style>tabe {width:100%;}</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
@@ -249,10 +253,9 @@
                             <!-- START WIDGET SLIDER -->
                             <div class="widget widget-default widget-item-icon" style="background:#0093ae;">
                                   <div class="widget-item-left">
-                                <div class="widget-int num-count" id="dvTotalPoints" runat="server"></div>
-                                </div>                           
-                                <div class="widget-data" style="margin-top: 22px;">
-                                    
+                                     <div class="widget-int num-count" id="dvTotalPoints" runat="server"></div>
+                                 </div>                           
+                                <div class="widget-data" style="margin-top: 22px;">                                    
                                     <div class="widget-title">Total Points Acumulated</div>
                                    <%-- <div class="widget-subtitle">In your mailbox</div>--%>
                                 </div>      

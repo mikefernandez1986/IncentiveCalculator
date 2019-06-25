@@ -73,6 +73,11 @@ namespace IncentiveCalcPOC.BAOLayer
         {
             return DAO.GetUsers();
         }
+        public UserEntities ValidatebyAD(string empName)
+        {
+            UserEntities userInfo = DAO.GetUserByADDetails(empName);
+            return userInfo;
+        }
 
         public UserEntities ValidateAndGetUser(string emailStr, string pwdStr)
         {

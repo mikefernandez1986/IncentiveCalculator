@@ -11,6 +11,24 @@
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.4/js/buttons.html5.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.4/js/buttons.print.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-filestyle/2.1.0/bootstrap-filestyle.js"></script>
+	<style>#customers2_length select {height: 30px;    border-radius: 4px;
+    font-size: 12px;
+    line-height: 18px; padding: 6px 12px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    border: 1px solid #D5D5D5;
+    background: #F9F9F9;}
+	#customers2_filter input {height: 30px;    border-radius: 4px;
+    font-size: 12px;
+    line-height: 18px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    border: 1px solid #D5D5D5;
+    background: #F9F9F9;}</style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- PAGE CONTENT WRAPPER -->
@@ -18,7 +36,7 @@
             <div class="row">
                 <div class="col-md-12">
 
-                    <div class="col-md-12">
+                    <div>
 
                     <div class="panel panel-default">
                         <div class="panel-body">
@@ -31,7 +49,7 @@
                                             <asp:DropDownList ID="ddlFileType" runat="server" CssClass="form-control select">
                                             </asp:DropDownList> 
                                     </div> 
-                                    <div class="col-md-3" >
+                                    <div class="col-md-3">
                                          <label style="visibility:hidden">Select one option from below</label>  
                                         <asp:Button ID="btn_FileDownload" CssClass="btn btn-success" runat="server" Text="Get Incentive Details"  OnClick="btn_FileDownload_Click"  /> 
                                     </div>                                           
@@ -57,7 +75,7 @@
                         </div>
                                                         
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" style="overflow-x: scroll;overflow-y: scroll;">
                         <table id="customers2" class="table datatable">
                             <thead id="th_ProductDetails" runat="server">
                                 <%--<tr><th>Employee No</th><th>Employee Name</th><th>Product</th><th>Achived Target Value</th><th>Target Status</th><th>Total Points</th><th>Propsed Pay Amount</th><th>Actual Pay Amount(75%)</th><th>Retained Amount(25%)</th><th>Payout Code</th></tr>--%>

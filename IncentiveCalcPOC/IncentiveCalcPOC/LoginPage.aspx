@@ -8,9 +8,8 @@
 	    <meta charset="utf-8" />
         <title>::Login</title>
         <meta name="description" content="User login page" />
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes">
 	    <link href="css/login.css" rel='stylesheet' type='text/css' />
-
     </head>
     <body>
         <div class="loginarea">
@@ -25,29 +24,29 @@
           <form id="form1" runat="server">
             <ul>
               <li>
-                  <asp:TextBox ID="EmailTxtBox" runat="server" class="text" placeholder="Username" Text="User name"  onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'User name';}"></asp:TextBox>            
-                  <a href="#" class=" icon user"></a> 
-                  <span style="margin-left:10px">
-                    <asp:RequiredFieldValidator ID="EmailRequiredFieldValidator" runat="server" ControlToValidate="EmailTxtBox" ErrorMessage="User Name Required" ForeColor="Red"></asp:RequiredFieldValidator>
-                </span>
+                  <asp:TextBox ID="EmailTxtBox" runat="server" class="user" placeholder="Username" Text="Username"  onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Username';}"></asp:TextBox>            
+                 
+                  
               </li>
               <li>
-                <asp:TextBox ID="PwdTxtBox" runat="server"  TextMode="Password" class="form-control" Text="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}"></asp:TextBox>
-                <a href="#" class=" icon lock"></a>
+                <asp:TextBox ID="PwdTxtBox" runat="server"  TextMode="Password" placeholder="Password" class="lock" Text="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}"></asp:TextBox>
+                
               </li>
-              <li>
-                  <asp:Label ID="InvalidLoginLbl" runat="server" ForeColor="#FF3300" Text="User Name or Password entered is incorrect"></asp:Label>
-              </li>
-            </ul>              
+              
+            </ul>
+              <br />          
               <div class="submit">
-                 <asp:Button runat="server" ID="LoginBtn"  OnClick="LoginBtn_Click" Text="Login" />
+                 <asp:Button runat="server" ID="LoginBtn"  OnClick="LoginBtn_Click" Text="Login" /><br />
+                  <asp:RequiredFieldValidator ID="EmailRequiredFieldValidator" runat="server" ControlToValidate="EmailTxtBox" ErrorMessage="User Name Required" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                  <asp:Label ID="InvalidLoginLbl" runat="server" ForeColor="#FF3300" Font-Size="12px" Text="User Name or Password entered is incorrect"></asp:Label>
+				  <p align="center"><a href="forgot.aspx">Forgot Password?</a></p>
               </div>
           </form>
   
   
-        </div><br />
+        </div>
 
-        <p align="center"><a href="forgot.aspx">Forgot Password?</a></p>
+        
         </div>
     </body>
 </html>

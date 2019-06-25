@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using IncentiveCalcPOC.Entities;
+using System.Configuration;
 
 namespace IncentiveCalcPOC
 {
@@ -12,6 +13,10 @@ namespace IncentiveCalcPOC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string currentPage = System.IO.Path.GetFileName(Request.Url.AbsolutePath);
+
+            breadCrumbName.InnerText = Convert.ToString(ConfigurationManager.AppSettings[currentPage]);
+
             if (Session["USER"] == null)
             {
                 Response.Redirect("LoginPage.aspx", false);
@@ -25,6 +30,21 @@ namespace IncentiveCalcPOC
                 }
                 UserNameLabel.Text = userInfo.FirstName ;
                 DesignationLabel.Text = userInfo.Designation;
+
+                //1 --> Basic User,  2--> Admin, 3 --> Super Admin, 4 --> Download Admin, 5--> Upload Admin
+
+                if(userInfo.Role.AccessLevelId != 1)
+                {
+                    UploadDownload.Style.Add("display", "block");
+                    if(userInfo.Role.AccessLevelId == 2 || userInfo.Role.AccessLevelId == 3 || userInfo.Role.AccessLevelId == 4)
+                    {
+                        upload.Style.Add("display", "block");
+                    }
+                    if (userInfo.Role.AccessLevelId == 2 || userInfo.Role.AccessLevelId == 3 || userInfo.Role.AccessLevelId == 5)
+                    {
+                        download.Style.Add("display", "block");
+                    }
+                }
 
                 //Load user info
             }
