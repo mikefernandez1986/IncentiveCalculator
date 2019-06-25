@@ -1,0 +1,447 @@
+<?xml version="1.0" standalone="yes"?>
+<fWatcherConfig>
+  <config>
+    <daemonName>CARD File Watcher</daemonName>
+    <startDaemon>true</startDaemon>
+    <displayFileSystemChange>true</displayFileSystemChange>
+    <logFileSystemChange>true</logFileSystemChange>
+    <logFileSystemSearchError>false</logFileSystemSearchError>
+    <displayFileSystemSearchError>false</displayFileSystemSearchError>
+    <logFileSystemSearchProgress>false</logFileSystemSearchProgress>
+    <displayFileSystemSearchProgress>false</displayFileSystemSearchProgress>
+    <path>C:\Projects\IncentiveCalculator-master\Payout</path>
+    <filter>\b(CARD)\b</filter>
+    <generateFileSystemEventsAtStartup>true</generateFileSystemEventsAtStartup>
+    <generatedEventFileNameRegularExpressionFilter>\b(CARD)\b</generatedEventFileNameRegularExpressionFilter>
+    <changedRegularExpressionFilter />
+    <createdRegularExpressionFilter />
+    <deletedRegularExpressionFilter />
+    <renamedRegularExpressionFilter />
+    <includeSubdirectories>false</includeSubdirectories>
+    <internalBufferSize>8192</internalBufferSize>
+    <subscribeToBufferErrorEvent>false</subscribeToBufferErrorEvent>
+    <subscribeToChangedEvent>false</subscribeToChangedEvent>
+    <subscribeToCreatedEvent>true</subscribeToCreatedEvent>
+    <subscribeToDeletedEvent>false</subscribeToDeletedEvent>
+    <subscribeToRenamedEvent>false</subscribeToRenamedEvent>
+    <notifyAttribute>false</notifyAttribute>
+    <notifyCreationTime>false</notifyCreationTime>
+    <notifyDirectoryName>false</notifyDirectoryName>
+    <notifyFileName>true</notifyFileName>
+    <notifyLastAccess>false</notifyLastAccess>
+    <notifyLastWrite>false</notifyLastWrite>
+    <notifySecurity>false</notifySecurity>
+    <notifySize>false</notifySize>
+    <startProcess>true</startProcess>
+    <logProcessStart>true</logProcessStart>
+    <logProcessEnd>true</logProcessEnd>
+    <processFileName>C:\Projects\Repo\IncentiveCalculator-RR\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcUtility\bin\Debug\IncentiveCalcUtility.exe</processFileName>
+    <processArguments>UPLOAD CARD "[F]"</processArguments>
+    <processUseFileNameAsArgument>true</processUseFileNameAsArgument>
+    <processArgumentsFileNameEscapeString>[F]</processArgumentsFileNameEscapeString>
+    <processUseOldFileNameAsArgument>false</processUseOldFileNameAsArgument>
+    <processArgumentsOldFileNameEscapeString />
+    <processUseChangeTypeAsArgument>false</processUseChangeTypeAsArgument>
+    <processArgumentsChangeTypeEscapeString />
+    <processVerb />
+    <processWorkingDirectory>C:\Projects\Repo\IncentiveCalculator-RR\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcUtility\bin\Debug</processWorkingDirectory>
+    <processUseShellExecute>false</processUseShellExecute>
+    <processCreateNoWindow>false</processCreateNoWindow>
+    <processWindowStyle>Normal</processWindowStyle>
+    <processSynchronizedExecution>false</processSynchronizedExecution>
+    <processMaxWaitTime>-1</processMaxWaitTime>
+    <processRedirectStandardError>false</processRedirectStandardError>
+    <processRedirectStandardOutput>false</processRedirectStandardOutput>
+    <processLoadUserProfile>false</processLoadUserProfile>
+    <processDomain />
+    <processUserName />
+    <processPassword />
+    <processBatchSize>0</processBatchSize>
+    <processFileMustExist>false</processFileMustExist>
+    <processDelay>0</processDelay>
+    <processLockFile>false</processLockFile>
+    <processLockFileLastWriteDelay>0</processLockFileLastWriteDelay>
+    <processLockFileRetries>0</processLockFileRetries>
+    <processLockFileRetriesQueueLimit>0</processLockFileRetriesQueueLimit>
+    <callService>false</callService>
+    <streamFile>false</streamFile>
+    <tryRenameFile>false</tryRenameFile>
+    <tryRenameFileRetries>0</tryRenameFileRetries>
+    <filteredMode>true</filteredMode>
+    <filteredModeFilterTimeout>2</filteredModeFilterTimeout>
+    <pollDirectory>true</pollDirectory>
+    <directoryPollInterval>1</directoryPollInterval>
+    <recycleFileWatcher>true</recycleFileWatcher>
+    <recycleInterval>60</recycleInterval>
+  </config>
+  <config>
+    <daemonName>CASA File Watcher</daemonName>
+    <startDaemon>true</startDaemon>
+    <displayFileSystemChange>true</displayFileSystemChange>
+    <logFileSystemChange>true</logFileSystemChange>
+    <logFileSystemSearchError>false</logFileSystemSearchError>
+    <displayFileSystemSearchError>false</displayFileSystemSearchError>
+    <logFileSystemSearchProgress>false</logFileSystemSearchProgress>
+    <displayFileSystemSearchProgress>false</displayFileSystemSearchProgress>
+    <path>C:\Projects\IncentiveCalculator-master\Payout</path>
+    <filter>\b(Deposit)\b</filter>
+    <generateFileSystemEventsAtStartup>true</generateFileSystemEventsAtStartup>
+    <generatedEventFileNameRegularExpressionFilter>\b(Deposit)\b</generatedEventFileNameRegularExpressionFilter>
+    <changedRegularExpressionFilter />
+    <createdRegularExpressionFilter />
+    <deletedRegularExpressionFilter />
+    <renamedRegularExpressionFilter />
+    <includeSubdirectories>false</includeSubdirectories>
+    <internalBufferSize>8192</internalBufferSize>
+    <subscribeToBufferErrorEvent>false</subscribeToBufferErrorEvent>
+    <subscribeToChangedEvent>false</subscribeToChangedEvent>
+    <subscribeToCreatedEvent>true</subscribeToCreatedEvent>
+    <subscribeToDeletedEvent>false</subscribeToDeletedEvent>
+    <subscribeToRenamedEvent>false</subscribeToRenamedEvent>
+    <notifyAttribute>false</notifyAttribute>
+    <notifyCreationTime>false</notifyCreationTime>
+    <notifyDirectoryName>false</notifyDirectoryName>
+    <notifyFileName>true</notifyFileName>
+    <notifyLastAccess>false</notifyLastAccess>
+    <notifyLastWrite>false</notifyLastWrite>
+    <notifySecurity>false</notifySecurity>
+    <notifySize>false</notifySize>
+    <startProcess>true</startProcess>
+    <logProcessStart>true</logProcessStart>
+    <logProcessEnd>true</logProcessEnd>
+    <processFileName>C:\Projects\Repo\IncentiveCalculator-RR\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcUtility\bin\Debug\IncentiveCalcUtility.exe</processFileName>
+    <processArguments>UPLOAD CASA "[F]"</processArguments>
+    <processUseFileNameAsArgument>true</processUseFileNameAsArgument>
+    <processArgumentsFileNameEscapeString>[F]</processArgumentsFileNameEscapeString>
+    <processUseOldFileNameAsArgument>false</processUseOldFileNameAsArgument>
+    <processArgumentsOldFileNameEscapeString />
+    <processUseChangeTypeAsArgument>false</processUseChangeTypeAsArgument>
+    <processArgumentsChangeTypeEscapeString />
+    <processVerb />
+    <processWorkingDirectory>C:\Projects\Repo\IncentiveCalculator-RR\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcUtility\bin\Debug\</processWorkingDirectory>
+    <processUseShellExecute>false</processUseShellExecute>
+    <processCreateNoWindow>false</processCreateNoWindow>
+    <processWindowStyle>Normal</processWindowStyle>
+    <processSynchronizedExecution>false</processSynchronizedExecution>
+    <processMaxWaitTime>-1</processMaxWaitTime>
+    <processRedirectStandardError>false</processRedirectStandardError>
+    <processRedirectStandardOutput>false</processRedirectStandardOutput>
+    <processLoadUserProfile>false</processLoadUserProfile>
+    <processDomain />
+    <processUserName />
+    <processPassword />
+    <processBatchSize>0</processBatchSize>
+    <processFileMustExist>false</processFileMustExist>
+    <processDelay>0</processDelay>
+    <processLockFile>false</processLockFile>
+    <processLockFileLastWriteDelay>0</processLockFileLastWriteDelay>
+    <processLockFileRetries>0</processLockFileRetries>
+    <processLockFileRetriesQueueLimit>0</processLockFileRetriesQueueLimit>
+    <callService>false</callService>
+    <streamFile>false</streamFile>
+    <tryRenameFile>false</tryRenameFile>
+    <tryRenameFileRetries>0</tryRenameFileRetries>
+    <filteredMode>true</filteredMode>
+    <filteredModeFilterTimeout>2</filteredModeFilterTimeout>
+    <pollDirectory>true</pollDirectory>
+    <directoryPollInterval>1</directoryPollInterval>
+    <recycleFileWatcher>true</recycleFileWatcher>
+    <recycleInterval>60</recycleInterval>
+  </config>
+  <config>
+    <daemonName>LOAN File Watcher</daemonName>
+    <startDaemon>true</startDaemon>
+    <displayFileSystemChange>true</displayFileSystemChange>
+    <logFileSystemChange>true</logFileSystemChange>
+    <logFileSystemSearchError>false</logFileSystemSearchError>
+    <displayFileSystemSearchError>false</displayFileSystemSearchError>
+    <logFileSystemSearchProgress>false</logFileSystemSearchProgress>
+    <displayFileSystemSearchProgress>false</displayFileSystemSearchProgress>
+    <path>C:\Projects\IncentiveCalculator-master\Payout</path>
+    <filter>\b(LOANS)\b</filter>
+    <generateFileSystemEventsAtStartup>true</generateFileSystemEventsAtStartup>
+    <generatedEventFileNameRegularExpressionFilter>\b(LOANS)\b</generatedEventFileNameRegularExpressionFilter>
+    <changedRegularExpressionFilter />
+    <createdRegularExpressionFilter />
+    <deletedRegularExpressionFilter />
+    <renamedRegularExpressionFilter />
+    <includeSubdirectories>false</includeSubdirectories>
+    <internalBufferSize>8192</internalBufferSize>
+    <subscribeToBufferErrorEvent>false</subscribeToBufferErrorEvent>
+    <subscribeToChangedEvent>false</subscribeToChangedEvent>
+    <subscribeToCreatedEvent>true</subscribeToCreatedEvent>
+    <subscribeToDeletedEvent>false</subscribeToDeletedEvent>
+    <subscribeToRenamedEvent>false</subscribeToRenamedEvent>
+    <notifyAttribute>false</notifyAttribute>
+    <notifyCreationTime>false</notifyCreationTime>
+    <notifyDirectoryName>false</notifyDirectoryName>
+    <notifyFileName>true</notifyFileName>
+    <notifyLastAccess>false</notifyLastAccess>
+    <notifyLastWrite>false</notifyLastWrite>
+    <notifySecurity>false</notifySecurity>
+    <notifySize>false</notifySize>
+    <startProcess>true</startProcess>
+    <logProcessStart>true</logProcessStart>
+    <logProcessEnd>true</logProcessEnd>
+    <processFileName>C:\Projects\Repo\IncentiveCalculator-RR\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcUtility\bin\Debug\IncentiveCalcUtility.exe</processFileName>
+    <processArguments>UPLOAD LOAN "[F]"</processArguments>
+    <processUseFileNameAsArgument>true</processUseFileNameAsArgument>
+    <processArgumentsFileNameEscapeString>[F]</processArgumentsFileNameEscapeString>
+    <processUseOldFileNameAsArgument>false</processUseOldFileNameAsArgument>
+    <processArgumentsOldFileNameEscapeString />
+    <processUseChangeTypeAsArgument>false</processUseChangeTypeAsArgument>
+    <processArgumentsChangeTypeEscapeString />
+    <processVerb />
+    <processWorkingDirectory>C:\Projects\Repo\IncentiveCalculator-RR\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcUtility\bin\Debug</processWorkingDirectory>
+    <processUseShellExecute>false</processUseShellExecute>
+    <processCreateNoWindow>false</processCreateNoWindow>
+    <processWindowStyle>Normal</processWindowStyle>
+    <processSynchronizedExecution>false</processSynchronizedExecution>
+    <processMaxWaitTime>-1</processMaxWaitTime>
+    <processRedirectStandardError>false</processRedirectStandardError>
+    <processRedirectStandardOutput>false</processRedirectStandardOutput>
+    <processLoadUserProfile>false</processLoadUserProfile>
+    <processDomain />
+    <processUserName />
+    <processPassword />
+    <processBatchSize>0</processBatchSize>
+    <processFileMustExist>false</processFileMustExist>
+    <processDelay>0</processDelay>
+    <processLockFile>false</processLockFile>
+    <processLockFileLastWriteDelay>0</processLockFileLastWriteDelay>
+    <processLockFileRetries>0</processLockFileRetries>
+    <processLockFileRetriesQueueLimit>0</processLockFileRetriesQueueLimit>
+    <callService>false</callService>
+    <streamFile>false</streamFile>
+    <tryRenameFile>false</tryRenameFile>
+    <tryRenameFileRetries>0</tryRenameFileRetries>
+    <filteredMode>true</filteredMode>
+    <filteredModeFilterTimeout>2</filteredModeFilterTimeout>
+    <pollDirectory>true</pollDirectory>
+    <directoryPollInterval>1</directoryPollInterval>
+    <recycleFileWatcher>true</recycleFileWatcher>
+    <recycleInterval>60</recycleInterval>
+  </config>
+  <config>
+    <daemonName>INS File Watcher</daemonName>
+    <startDaemon>true</startDaemon>
+    <displayFileSystemChange>true</displayFileSystemChange>
+    <logFileSystemChange>true</logFileSystemChange>
+    <logFileSystemSearchError>false</logFileSystemSearchError>
+    <displayFileSystemSearchError>false</displayFileSystemSearchError>
+    <logFileSystemSearchProgress>false</logFileSystemSearchProgress>
+    <displayFileSystemSearchProgress>false</displayFileSystemSearchProgress>
+    <path>C:\Projects\IncentiveCalculator-master\Payout</path>
+    <filter>\b(NSURANCE)\b</filter>
+    <generateFileSystemEventsAtStartup>true</generateFileSystemEventsAtStartup>
+    <generatedEventFileNameRegularExpressionFilter>\b(NSURANCE)\b</generatedEventFileNameRegularExpressionFilter>
+    <changedRegularExpressionFilter />
+    <createdRegularExpressionFilter />
+    <deletedRegularExpressionFilter />
+    <renamedRegularExpressionFilter />
+    <includeSubdirectories>false</includeSubdirectories>
+    <internalBufferSize>8192</internalBufferSize>
+    <subscribeToBufferErrorEvent>false</subscribeToBufferErrorEvent>
+    <subscribeToChangedEvent>false</subscribeToChangedEvent>
+    <subscribeToCreatedEvent>true</subscribeToCreatedEvent>
+    <subscribeToDeletedEvent>false</subscribeToDeletedEvent>
+    <subscribeToRenamedEvent>false</subscribeToRenamedEvent>
+    <notifyAttribute>false</notifyAttribute>
+    <notifyCreationTime>false</notifyCreationTime>
+    <notifyDirectoryName>false</notifyDirectoryName>
+    <notifyFileName>true</notifyFileName>
+    <notifyLastAccess>false</notifyLastAccess>
+    <notifyLastWrite>false</notifyLastWrite>
+    <notifySecurity>false</notifySecurity>
+    <notifySize>false</notifySize>
+    <startProcess>true</startProcess>
+    <logProcessStart>true</logProcessStart>
+    <logProcessEnd>true</logProcessEnd>
+    <processFileName>C:\Projects\Repo\IncentiveCalculator-RR\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcUtility\bin\Debug\IncentiveCalcUtility.exe</processFileName>
+    <processArguments>UPLOAD INS "[F]"</processArguments>
+    <processUseFileNameAsArgument>true</processUseFileNameAsArgument>
+    <processArgumentsFileNameEscapeString>[F]</processArgumentsFileNameEscapeString>
+    <processUseOldFileNameAsArgument>false</processUseOldFileNameAsArgument>
+    <processArgumentsOldFileNameEscapeString />
+    <processUseChangeTypeAsArgument>false</processUseChangeTypeAsArgument>
+    <processArgumentsChangeTypeEscapeString />
+    <processVerb />
+    <processWorkingDirectory>C:\Projects\Repo\IncentiveCalculator-RR\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcUtility\bin\Debug</processWorkingDirectory>
+    <processUseShellExecute>false</processUseShellExecute>
+    <processCreateNoWindow>false</processCreateNoWindow>
+    <processWindowStyle>Normal</processWindowStyle>
+    <processSynchronizedExecution>false</processSynchronizedExecution>
+    <processMaxWaitTime>-1</processMaxWaitTime>
+    <processRedirectStandardError>false</processRedirectStandardError>
+    <processRedirectStandardOutput>false</processRedirectStandardOutput>
+    <processLoadUserProfile>false</processLoadUserProfile>
+    <processDomain />
+    <processUserName />
+    <processPassword />
+    <processBatchSize>0</processBatchSize>
+    <processFileMustExist>false</processFileMustExist>
+    <processDelay>0</processDelay>
+    <processLockFile>false</processLockFile>
+    <processLockFileLastWriteDelay>0</processLockFileLastWriteDelay>
+    <processLockFileRetries>0</processLockFileRetries>
+    <processLockFileRetriesQueueLimit>0</processLockFileRetriesQueueLimit>
+    <callService>false</callService>
+    <streamFile>false</streamFile>
+    <tryRenameFile>false</tryRenameFile>
+    <tryRenameFileRetries>0</tryRenameFileRetries>
+    <filteredMode>true</filteredMode>
+    <filteredModeFilterTimeout>2</filteredModeFilterTimeout>
+    <pollDirectory>true</pollDirectory>
+    <directoryPollInterval>1</directoryPollInterval>
+    <recycleFileWatcher>true</recycleFileWatcher>
+    <recycleInterval>60</recycleInterval>
+  </config>
+  <config>
+    <daemonName>Cumulative Payout File Watcher</daemonName>
+    <startDaemon>true</startDaemon>
+    <displayFileSystemChange>true</displayFileSystemChange>
+    <logFileSystemChange>true</logFileSystemChange>
+    <logFileSystemSearchError>false</logFileSystemSearchError>
+    <displayFileSystemSearchError>false</displayFileSystemSearchError>
+    <logFileSystemSearchProgress>false</logFileSystemSearchProgress>
+    <displayFileSystemSearchProgress>false</displayFileSystemSearchProgress>
+    <path>C:\Projects\IncentiveCalculator-master\Payout</path>
+    <filter>\b(PAYOUT)\b</filter>
+    <generateFileSystemEventsAtStartup>true</generateFileSystemEventsAtStartup>
+    <generatedEventFileNameRegularExpressionFilter>\b(PAYOUT)\b</generatedEventFileNameRegularExpressionFilter>
+    <changedRegularExpressionFilter />
+    <createdRegularExpressionFilter />
+    <deletedRegularExpressionFilter />
+    <renamedRegularExpressionFilter />
+    <includeSubdirectories>false</includeSubdirectories>
+    <internalBufferSize>8192</internalBufferSize>
+    <subscribeToBufferErrorEvent>false</subscribeToBufferErrorEvent>
+    <subscribeToChangedEvent>false</subscribeToChangedEvent>
+    <subscribeToCreatedEvent>true</subscribeToCreatedEvent>
+    <subscribeToDeletedEvent>false</subscribeToDeletedEvent>
+    <subscribeToRenamedEvent>false</subscribeToRenamedEvent>
+    <notifyAttribute>false</notifyAttribute>
+    <notifyCreationTime>false</notifyCreationTime>
+    <notifyDirectoryName>false</notifyDirectoryName>
+    <notifyFileName>true</notifyFileName>
+    <notifyLastAccess>false</notifyLastAccess>
+    <notifyLastWrite>false</notifyLastWrite>
+    <notifySecurity>false</notifySecurity>
+    <notifySize>false</notifySize>
+    <startProcess>true</startProcess>
+    <logProcessStart>true</logProcessStart>
+    <logProcessEnd>true</logProcessEnd>
+    <processFileName>C:\Projects\Repo\IncentiveCalculator-RR\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcUtility\bin\Debug\IncentiveCalcUtility.exe</processFileName>
+    <processArguments>CUML-PAYOUT "[F]"</processArguments>
+    <processUseFileNameAsArgument>true</processUseFileNameAsArgument>
+    <processArgumentsFileNameEscapeString>[F]</processArgumentsFileNameEscapeString>
+    <processUseOldFileNameAsArgument>false</processUseOldFileNameAsArgument>
+    <processArgumentsOldFileNameEscapeString />
+    <processUseChangeTypeAsArgument>false</processUseChangeTypeAsArgument>
+    <processArgumentsChangeTypeEscapeString />
+    <processVerb />
+    <processWorkingDirectory>C:\Projects\Repo\IncentiveCalculator-RR\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcUtility\bin\Debug</processWorkingDirectory>
+    <processUseShellExecute>false</processUseShellExecute>
+    <processCreateNoWindow>false</processCreateNoWindow>
+    <processWindowStyle>Normal</processWindowStyle>
+    <processSynchronizedExecution>false</processSynchronizedExecution>
+    <processMaxWaitTime>-1</processMaxWaitTime>
+    <processRedirectStandardError>false</processRedirectStandardError>
+    <processRedirectStandardOutput>false</processRedirectStandardOutput>
+    <processLoadUserProfile>false</processLoadUserProfile>
+    <processDomain />
+    <processUserName />
+    <processPassword />
+    <processBatchSize>0</processBatchSize>
+    <processFileMustExist>false</processFileMustExist>
+    <processDelay>0</processDelay>
+    <processLockFile>false</processLockFile>
+    <processLockFileLastWriteDelay>0</processLockFileLastWriteDelay>
+    <processLockFileRetries>0</processLockFileRetries>
+    <processLockFileRetriesQueueLimit>0</processLockFileRetriesQueueLimit>
+    <callService>false</callService>
+    <streamFile>false</streamFile>
+    <tryRenameFile>false</tryRenameFile>
+    <tryRenameFileRetries>0</tryRenameFileRetries>
+    <filteredMode>true</filteredMode>
+    <filteredModeFilterTimeout>2</filteredModeFilterTimeout>
+    <pollDirectory>true</pollDirectory>
+    <directoryPollInterval>1</directoryPollInterval>
+    <recycleFileWatcher>true</recycleFileWatcher>
+    <recycleInterval>60</recycleInterval>
+  </config>
+  <config>
+    <daemonName>Accumulate Retained Amt File Watcher</daemonName>
+    <startDaemon>true</startDaemon>
+    <displayFileSystemChange>true</displayFileSystemChange>
+    <logFileSystemChange>true</logFileSystemChange>
+    <logFileSystemSearchError>false</logFileSystemSearchError>
+    <displayFileSystemSearchError>false</displayFileSystemSearchError>
+    <logFileSystemSearchProgress>false</logFileSystemSearchProgress>
+    <displayFileSystemSearchProgress>false</displayFileSystemSearchProgress>
+    <path>C:\Projects\IncentiveCalculator-master\Payout</path>
+    <filter>\b(RETAINED)\b</filter>
+    <generateFileSystemEventsAtStartup>true</generateFileSystemEventsAtStartup>
+    <generatedEventFileNameRegularExpressionFilter>\b(RETAINED)\b</generatedEventFileNameRegularExpressionFilter>
+    <changedRegularExpressionFilter />
+    <createdRegularExpressionFilter />
+    <deletedRegularExpressionFilter />
+    <renamedRegularExpressionFilter />
+    <includeSubdirectories>false</includeSubdirectories>
+    <internalBufferSize>8192</internalBufferSize>
+    <subscribeToBufferErrorEvent>false</subscribeToBufferErrorEvent>
+    <subscribeToChangedEvent>false</subscribeToChangedEvent>
+    <subscribeToCreatedEvent>true</subscribeToCreatedEvent>
+    <subscribeToDeletedEvent>false</subscribeToDeletedEvent>
+    <subscribeToRenamedEvent>false</subscribeToRenamedEvent>
+    <notifyAttribute>false</notifyAttribute>
+    <notifyCreationTime>false</notifyCreationTime>
+    <notifyDirectoryName>false</notifyDirectoryName>
+    <notifyFileName>true</notifyFileName>
+    <notifyLastAccess>false</notifyLastAccess>
+    <notifyLastWrite>false</notifyLastWrite>
+    <notifySecurity>false</notifySecurity>
+    <notifySize>false</notifySize>
+    <startProcess>true</startProcess>
+    <logProcessStart>true</logProcessStart>
+    <logProcessEnd>true</logProcessEnd>
+    <processFileName>C:\Projects\Repo\IncentiveCalculator-RR\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcUtility\bin\Debug\IncentiveCalcUtility.exe</processFileName>
+    <processArguments>ACCUM-RETAINED-AMT "[F]"</processArguments>
+    <processUseFileNameAsArgument>true</processUseFileNameAsArgument>
+    <processArgumentsFileNameEscapeString>[F]</processArgumentsFileNameEscapeString>
+    <processUseOldFileNameAsArgument>false</processUseOldFileNameAsArgument>
+    <processArgumentsOldFileNameEscapeString />
+    <processUseChangeTypeAsArgument>false</processUseChangeTypeAsArgument>
+    <processArgumentsChangeTypeEscapeString />
+    <processVerb />
+    <processWorkingDirectory>C:\Projects\Repo\IncentiveCalculator-RR\IncentiveCalculator\IncentiveCalcPOC\IncentiveCalcUtility\bin\Debug</processWorkingDirectory>
+    <processUseShellExecute>false</processUseShellExecute>
+    <processCreateNoWindow>false</processCreateNoWindow>
+    <processWindowStyle>Normal</processWindowStyle>
+    <processSynchronizedExecution>false</processSynchronizedExecution>
+    <processMaxWaitTime>-1</processMaxWaitTime>
+    <processRedirectStandardError>false</processRedirectStandardError>
+    <processRedirectStandardOutput>false</processRedirectStandardOutput>
+    <processLoadUserProfile>false</processLoadUserProfile>
+    <processDomain />
+    <processUserName />
+    <processPassword />
+    <processBatchSize>0</processBatchSize>
+    <processFileMustExist>false</processFileMustExist>
+    <processDelay>0</processDelay>
+    <processLockFile>false</processLockFile>
+    <processLockFileLastWriteDelay>0</processLockFileLastWriteDelay>
+    <processLockFileRetries>0</processLockFileRetries>
+    <processLockFileRetriesQueueLimit>0</processLockFileRetriesQueueLimit>
+    <callService>false</callService>
+    <streamFile>false</streamFile>
+    <tryRenameFile>false</tryRenameFile>
+    <tryRenameFileRetries>0</tryRenameFileRetries>
+    <filteredMode>true</filteredMode>
+    <filteredModeFilterTimeout>2</filteredModeFilterTimeout>
+    <pollDirectory>true</pollDirectory>
+    <directoryPollInterval>1</directoryPollInterval>
+    <recycleFileWatcher>true</recycleFileWatcher>
+    <recycleInterval>60</recycleInterval>
+  </config>
+</fWatcherConfig>
