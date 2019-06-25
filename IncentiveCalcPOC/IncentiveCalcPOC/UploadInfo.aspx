@@ -22,7 +22,7 @@
     <!-- PAGE CONTENT WRAPPER -->
                 
             <div class="row">
-                <div class="col-md-12">
+                <div>
 
                     <div class="col-md-6">
 
@@ -101,7 +101,7 @@
                         <div style="float:right">
                             <asp:Button runat="server" ID="btn_Refresh" Text="Refresh" CssClass="btn btn-success"  OnClick="btn_Refresh_Click"/>
                         </div>
-                        <%--<div class="btn-group pull-right">
+                        <div class="btn-group pull-right">
                             <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Export Data</button>
                             <ul class="dropdown-menu">                                            
                                             
@@ -109,9 +109,9 @@
                                 <li><a href="#" onClick ="$('#customers2').tableExport({type:'excel',escape:'false'});"><img src='img/icons/xls.png' width="24"/> XLS</a></li>
                                 <li><a href="#" onClick ="$('#customers2').tableExport({type:'pdf',escape:'false'});"><img src='img/icons/pdf.png' width="24"/> PDF</a></li>
                             </ul>
-                        </div>  --%>                                  
+                        </div>                                
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" style="overflow-x: scroll;overflow-y: scroll;">
                         <table id="customers2" class="table datatable">
                             <thead>
                                 <tr>
@@ -124,8 +124,7 @@
                                 </tr>
                             </thead>
                             <tbody id="tb_KPIDetails" runat="server">
-                            </tbody>
-                                        
+                            </tbody>                                        
                         </table>                                    
                     </div>
                 </div>

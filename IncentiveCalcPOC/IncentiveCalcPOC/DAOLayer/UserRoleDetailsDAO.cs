@@ -160,6 +160,33 @@ namespace IncentiveCalcPOC.DAOLayer
             return userInfo;
         }
 
+        public UserEntities GetUserByADDetails(string emp_name)
+        {
+            UserEntities userInfo = new UserEntities();
+            DBHelper dbHelper = new DBHelper();
+            SqlParameter[] sqlParams = new SqlParameter[1];
+            sqlParams[0] = new SqlParameter("EmpName", emp_name);
+            DataSet ds = dbHelper.GetDatasetFromSP("usp_GetUserDetailsbyEmpName", sqlParams);
+            if (ds.Tables.Count > 0)
+            {
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    userInfo.Emp_No = ds.Tables[0].Rows[0].ItemArray.GetValue(0).ToString();
+                    userInfo.Password = ds.Tables[0].Rows[0].ItemArray.GetValue(1).ToString();
+                    userInfo.FirstName = ds.Tables[0].Rows[0].ItemArray.GetValue(2).ToString();
+                    userInfo.Designation = ds.Tables[0].Rows[0].ItemArray.GetValue(3).ToString();
+                    userInfo.ProfilePicPath = ds.Tables[0].Rows[0].ItemArray.GetValue(4).ToString();
+                    userInfo.Enabled = Convert.ToBoolean(ds.Tables[0].Rows[0].ItemArray.GetValue(5));
+                    userInfo.LastUpdated = Convert.ToDateTime(ds.Tables[0].Rows[0].ItemArray.GetValue(6));
+                    userInfo.RoleId = Convert.ToInt32(ds.Tables[0].Rows[0].ItemArray.GetValue(7));
+                    userInfo.Role.RoleName = ds.Tables[0].Rows[0].ItemArray.GetValue(8).ToString();
+                    userInfo.Role.AccessLevelId = Convert.ToInt32(ds.Tables[0].Rows[0].ItemArray.GetValue(9));
+                }
+            }
+            return userInfo;
+
+        }
+
         public UserEntities GetUser(string emp_no)
         {
             UserEntities userInfo = new UserEntities();
@@ -181,7 +208,7 @@ namespace IncentiveCalcPOC.DAOLayer
                     userInfo.LastUpdated = Convert.ToDateTime(ds.Tables[0].Rows[0].ItemArray.GetValue(7));
                     userInfo.RoleId = Convert.ToInt32(ds.Tables[0].Rows[0].ItemArray.GetValue(8));
                     userInfo.Role.RoleName = ds.Tables[0].Rows[0].ItemArray.GetValue(9).ToString();
-                   // userInfo.Role.AccessLevelId = Convert.ToInt32(ds.Tables[0].Rows[0].ItemArray.GetValue(10));
+                    userInfo.Role.AccessLevelId = Convert.ToInt32(ds.Tables[0].Rows[0].ItemArray.GetValue(10));
                 }
             }
             return userInfo;

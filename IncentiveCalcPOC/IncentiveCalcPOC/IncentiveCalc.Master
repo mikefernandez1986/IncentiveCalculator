@@ -21,11 +21,39 @@
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/settings.js"></script>        
         <script type="text/javascript" src="js/plugins.js"></script>        
-        <script type="text/javascript" src="js/actions.js"></script>                
+        <script type="text/javascript" src="js/actions.js"></script>    
+    
+                  
     <!-- END PLUGINS -->  
       
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <%
+        string id = "";
+        if (Request.Url.AbsolutePath.Contains("Dashboard"))
+        {
+            id = "dashactive";
+        }
+        else if(Request.Url.AbsolutePath.Contains("UploadInfo"))
+        {
+            id = "upload";
+        }
+        else if(Request.Url.AbsolutePath.Contains("DownloadData"))
+        {
+            id = "download";
+        }
+        
+        else if(Request.Url.AbsolutePath.Contains("EmployeeDetails"))
+        {
+            id = "dashactive3";
+        }         
+
+      %>
+    <style type="text/css"> #<%=id%> a {background: #1c9cd8; color:#fff;}
+
+       
+    </style>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -60,21 +88,16 @@
                             </div>
                         </div>                                                                        
                     </li>               
-                    <li class="active"><a href="Dashboard.aspx"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a> </li>                    
-                    <%--<li><a href="#"><span class="fa fa-user"></span> <span class="xn-text">Employee List</span></a></li>--%>
+                    <li id="dashactive"><a href="Dashboard.aspx">&raquo; <span class="xn-text">Dashboard</span></a> </li>       
                     
-                    <li class="xn-openable"><a href="#"><span class="fa fa-user"></span> <span class="xn-text">Admin</span></a>
+                    <li id="UploadDownload" class="xn-openable" runat="server" style="display:none"><a href="#">&raquo; <span class="xn-text">Admin</span></a>
 					    <ul>              
-                            <li><a href="UploadInfo.aspx"><span class="fa fa-upload"></span> Upload Files</a></li>
-                            <li><a href="DownloadData.aspx"><span class="fa fa-download"></span> Download Files</a></li>
-                            <%--<li><a href="AddRole.aspx"><span class="fa fa-book"></span> Role Maintenance</a></li>--%>
-                           <%-- <li><a href="#"><span class="fa fa-desktop"></span> App Login</a></li>
-                            <li><a href="#"><span class="fa fa-desktop"></span> Website</a></li>--%>
+                            <li id="upload"  runat="server"  style="display:none"><a href="UploadInfo.aspx">- Upload Files</a></li>
+                            <li id="download"  runat="server"  style="display:none"><a href="DownloadData.aspx">- Download Files</a></li>
                         </ul>
 					</li>   
 
-					<li><a href="EmployeeDetails.aspx"><span class="fa fa-info"></span> <span class="xn-text">Employee Info</span></a></li>   					
-                    
+					<li id="dashactive3"><a href="EmployeeDetails.aspx">&raquo; <span class="xn-text">Employee Info</span></a></li>
                     
                 </ul>
                 <!-- END X-NAVIGATION -->
@@ -86,15 +109,14 @@
               
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
-                    <li><a href="#">Home</a></li>                    
-                    <li class="active">Dashboard</li>
+                    <li><a href="Dashboard.aspx">Home</a></li>                    
+                    <li class="active" id="breadCrumbName" runat="server"></li>
 <%--					<li style="float:right;"><a href="login.aspx" ><b><span class="fa fa-sign-out"></span> LOGOUT</b><a/></li>--%>
                     <li style="float:right;">
-                        <span class="fa fa-sign-out"></span>
-                    <asp:LinkButton id="LinkButton1" 
-           Text="Logout" 
-           OnClick="OnLogout_Click" 
-           runat="server"/></li>
+                    <span class="fa fa-sign-out"></span>
+                    <asp:LinkButton id="LinkButton1" Text="Logout" OnClick="OnLogout_Click" runat="server"/>
+
+                    </li>
                 </ul>
                 <!-- END BREADCRUMB -->                       
                 

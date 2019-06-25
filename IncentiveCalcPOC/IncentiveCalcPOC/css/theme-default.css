@@ -372,7 +372,7 @@ body.page-container-boxed .page-container {
   content: "\f147";
 }
 .x-navigation li.active > a {
-  background: #31409d;
+  background: #1c9cd8;
   color:#fff;
   -webkit-transition: all 200ms ease;
   -moz-transition: all 200ms ease;
@@ -399,10 +399,10 @@ body.page-container-boxed .page-container {
   top:7px;
 }
 .x-navigation > li > ul > li > a {
-  padding-left: 45px; color:#000;background:#efefef;
+  padding-left: 20px; color:#000;background:#efefef;
 }
 .x-navigation > li > ul > li > a:hover {
-  padding-left:45px;color:#000; background:#efefef;
+  padding-left:20px;color:#000; background:#efefef;
 }
 .x-navigation > li > ul > li.active > a {
   padding-left: 30px;
@@ -411,10 +411,10 @@ body.page-container-boxed .page-container {
   padding-left: 40px;
 }
 .x-navigation > li > ul > li > ul > li > a:hover {
-  padding-left: 45px;
+  padding-left: 20px;
 }
 .x-navigation > li > ul > li > ul > li.active > a {
-  padding-left: 45px;
+  padding-left: 20px;
 }
 .x-navigation > li > ul > li > ul > li > ul > li > a {
   padding-left: 50px;
@@ -435,9 +435,8 @@ body.page-container-boxed .page-container {
   padding-left: 65px;
 }
 .x-navigation > li:last-child > a {
-  -moz-border-radius: 0px 0px 0px 5px;
-  -webkit-border-radius: 0px 0px 0px 5px;
-  border-radius: 0px 0px 0px 5px;
+  
+  border-radius: 0px;
   border-bottom: 0px;
 }
 .x-navigation.x-navigation-horizontal {
@@ -1167,7 +1166,7 @@ body.page-container-boxed .page-container {
 .breadcrumb {
   float: left;
   width: 100%;
-  background: #fff;
+  background: #1c9cd8;
   margin-bottom: 10px;
   padding: 10px 15px 10px;
   -moz-border-radius: 0px;
@@ -1178,20 +1177,20 @@ body.page-container-boxed .page-container {
 .breadcrumb li a {
   font-size: 11px;
   line-height: 12px;
-  color: #4d5669;
+  color: #fff;
   text-decoration: none;
 }
 .breadcrumb li:hover,
 .breadcrumb li a:hover {
-  color: #22262e;
+  color: #fff;
 }
 .breadcrumb li:last-child {
-  color: #22262e;
+  color: #fff;
 }
 .breadcrumb > li + li:before {
   font-family: "FontAwesome";
   content: "\f105";
-  color: #4d5669;
+  color: #fff;
   padding: 0px 8px;
 }
 /* EOF BREADCRUMB */
@@ -1456,7 +1455,7 @@ a.list-group-item:focus {
   top: 0px;
 }
 .panel .panel-heading {
-  padding: 10px;
+  padding: 4px;
 }
 .panel .panel-heading .panel-title-image {
   float: left;
@@ -1585,10 +1584,10 @@ a.list-group-item:focus {
 .panel .panel-title {
   font-size: 16px;
   font-weight: 400;
-  line-height: 30px;
+  line-height: 25px;
   display: block;
   float: left;
-  color: #1b1e24;
+  color: #fff;
 }
 .panel .panel-footer {
   background: #F5F5F5;
@@ -1603,7 +1602,7 @@ a.list-group-item:focus {
 .panel-info .panel-heading,
 .panel-warning .panel-heading,
 .panel-danger .panel-heading {
-  background: #F5F5F5;
+  background: #1c9cd8;
   border-color: #E5E5E5;
 }
 .panel-fullscreen-wrap {
@@ -2011,8 +2010,8 @@ ul.panel-controls > li > .dropdown-menu:before {
   border-color: #feb34c;
 }
 .btn-success {
-  background-color: #95b75d;
-  border-color: #95b75d;
+  background-color:#1c9cd8;
+  border-color: #1c9cd8;
 }
 .btn-success:hover,
 .btn-success:focus,
@@ -3080,17 +3079,17 @@ blockquote.pull-right {
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-  border-color: #E5E5E5;
-  border-width: 1px;
+  border-color: #075573;
+  border-width: 1px; border-right:1px solid #075573;
 }
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
   background: #F8FAFC;
 }
 .table > thead > tr > th {
-  background: #f1f5f9;
-  color: #56688A;
-  font-size: 12px;
+  background: #075573;
+  color: #fff;
+  font-size: 13px;font-weight: normal;
 }
 .panel-body.panel-body-table {
   padding: 0px;
@@ -3133,7 +3132,7 @@ blockquote.pull-right {
 /* Datatables */
 .dataTable {
   float: left;
-  border-bottom: 1px solid #E5E5E5 !important;
+  border: 1px solid #075573 !important;
   margin-bottom: 5px;
 }
 .dataTable div.checker,
@@ -3148,7 +3147,7 @@ blockquote.pull-right {
   width: 50%;
   float: left;
   padding: 0px 0px 5px;
-  border-bottom: 1px solid #E5E5E5;
+  border-bottom:0px solid #075573;
   font-size: 12px;
 }
 .dataTables_length label,
@@ -3169,7 +3168,7 @@ blockquote.pull-right {
   float: right;
   padding-left: 5px;
   padding: 0px 0px 5px;
-  border-bottom: 1px solid #E5E5E5;
+  border-bottom:0px solid #075573;
   font-size: 12px;
 }
 .dataTables_filter label {
@@ -3327,11 +3326,11 @@ td.dataTables_empty {
     color: #FFF;
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
-    border-radius: 0px;
+    
     padding: 15px 10px;
     margin-bottom: 20px;
     min-height:100px;
-    position: relative;
+    position: relative;border-radius: 10px;
 }
 .widget.widget-padding-sm,
 .widget.widget-item-icon {
@@ -3411,9 +3410,9 @@ background: #0093ae !important;
 .widget .widget-title {
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 5px;
+   margin-top: 11px;
   line-height: 20px;
-  text-transform: uppercase;
+  
 }
 .widget .widget-subtitle {
   font-size: 12px;
@@ -3423,10 +3422,10 @@ background: #0093ae !important;
   color: #EEE;
 }
 .widget .widget-int {
-  font-size:25px;
+  font-size:20px;
   line-height: 40px;
   font-weight: normal;
-  font-family: arial; border-radius:6px; background:#fff; color:#000;  width: 76px;
+  font-family: arial; border-radius:6px; background:#fff; color:#000;  padding:3px;
 }
 .widget .widget-big-int {
   font-size: 42px;
@@ -3452,7 +3451,7 @@ background: #0093ae !important;
 .widget.widget-item-icon .widget-item-left {
   border-right: 0px solid rgba(0, 0, 0, 0.1);
   margin-right: 10px;
-  padding-right: 10px;
+  padding-right: 0px;
 }
 .widget.widget-item-icon .widget-item-right {
   border-left: 1px solid rgba(0, 0, 0, 0.1);
@@ -6556,6 +6555,8 @@ div.tagsinput div {
   text-overflow: ellipsis;
   width: 85%;
 }
+.ellipsis {display:none;}
+
 .file-error-message {
   background-color: #f2dede;
   color: #a94442;
@@ -7334,8 +7335,9 @@ display:none;
 	}
 
     .dottedborder{
-        border-bottom: dotted 1px black;
+        border-bottom: solid 1px #ccc;
     }
+
     .leftFloat{
         float:left; 
         text-align:center;
@@ -7356,7 +7358,7 @@ display:none;
     .innerlabel{
         margin-left: 5px; 
         text-align:center;
-        font-size:15px;
+        font-size:14px;
     }
     table { border-collapse: collapse; empty-cells: show; }
 
@@ -7378,3 +7380,6 @@ display:none;
 
 
 
+
+	
+	
